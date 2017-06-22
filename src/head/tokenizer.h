@@ -1,8 +1,12 @@
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
 
-extern "C" {
-    void makeToken(const char* str, char* tokhold, bool* done);
+#include <string>
+#include <vector>
+
+namespace Tokenizer
+{
+    std::vector<std::string> tokenize(const char * input);
 }
 
 #endif
