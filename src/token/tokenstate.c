@@ -4,6 +4,14 @@
 /**
  * Function that takes in the code, and a bool.
  * the bool determines if the tokenizer is currently set at a token or needs to cut for a diff token.
+ * state 0: base
+ * state 1: name literal
+ * state 2: numeric literal
+ * state 3: string literal
+ * state 4: single char token
+ * state 5: - token to -> or -
+ * state 6: bool operators
+ * state 7: double or float
  */
 void tokenState(const char* input, bool* active)
 {
@@ -31,6 +39,8 @@ void tokenState(const char* input, bool* active)
                     break;
                 case '+':
                 case '@':
+                case '|':
+                case '&':
                 case '*':
                 case '/':
                 case '[':
@@ -39,11 +49,34 @@ void tokenState(const char* input, bool* active)
                     state = 4;
                     *active = true;
                     break;
+                case '-':
+                    state = 5;
+                    *active = true;
+                    break;
+                //bool comparison states
+                case '>':
+                case '<':
+                case '=':
+                    state = 6;
+                    *active = true;
+                    break;
              }
              break;
         //name literal state
         case 1:
             if(!(isalpha(*input) || isdigit(*input) || *input == '_'))
+            {
+                state = 0;
+                *active = false;
+            }
+            break;
+        case 2:
+            if(*input == '.')
+            {
+                state = 7;
+                //active stays true due to float
+            }
+            else if(!isdigit(*input))
             {
                 state = 0;
                 *active = false;
