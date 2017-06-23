@@ -12,13 +12,14 @@
  * state 5: - token to -> or -
  * state 6: bool operators
  * state 7: double or float
+ * 
+ * note: can refer back to state 4 for auto break of cur token.
  */
 void tokenState(const char* input, bool* active)
 {
     static int state = 0;
     switch(state)
     {
-        //base state
        case 0:
              if(isspace(*input));
              else if(isalpha(*input))
@@ -53,7 +54,7 @@ void tokenState(const char* input, bool* active)
                     state = 5;
                     *active = true;
                     break;
-                //bool comparison states
+                //bool comparison states or forward backward
                 case '>':
                 case '<':
                 case '=':
@@ -62,7 +63,6 @@ void tokenState(const char* input, bool* active)
                     break;
              }
              break;
-        //name literal state
         case 1:
             if(!(isalpha(*input) || isdigit(*input) || *input == '_'))
             {
@@ -77,6 +77,25 @@ void tokenState(const char* input, bool* active)
                 //active stays true due to float
             }
             else if(!isdigit(*input))
+            {
+                state = 0;
+                *active = false;
+            }
+            break;
+        case 3:
+            if(*input == '"')
+            {
+                state = 0;
+                *active = false;
+            }
+            break;
+        case 4:
+            state = 0;
+            *active = false;
+            break;
+        case 5:
+            if(*input == '>') state = 4;
+            else
             {
                 state = 0;
                 *active = false;
