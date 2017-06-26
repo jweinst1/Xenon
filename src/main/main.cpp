@@ -1,10 +1,8 @@
 #include <iostream>
 
-#include "../head/main.h"
 #include "../head/tokenstate.h"
 
 int main(){
-    std::cout << message <<std::endl;
     const char code[] = "hello";
     bool g = false;
     bool * gpt = &g;
