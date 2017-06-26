@@ -10,6 +10,7 @@ typedef unsigned XenonType;
 
 typedef struct {
     XenonType type;
+    int refc;
 } XenonObject;
 
 
