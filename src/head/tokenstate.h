@@ -3,11 +3,10 @@
 #include <stdbool.h>
 
 
-extern "C" {
 
   //modifies and determines tokenizer state
-  void tokenState(const char* input, bool* active);  
-}
+void tokenState(const char* input, bool* active);  
+
 
 
 #endif
