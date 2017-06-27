@@ -15,9 +15,16 @@ typedef struct {
     void* data;
 } XenonObject;
 
-//constructor functions
 
-XenonObject cons_int_s(int value);
+void obj_del(XenonObject* xbj);
+
+//constructor functions
+//cons_ idiom for a function that constructs 
+
+void obj_cons_int(XenonObject* xbj, int value);
+
+
+
 
 
 

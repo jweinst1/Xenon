@@ -46,6 +46,16 @@ char* allo_char_m(int amount)
     return (char*)malloc(1*amount);
 }
 
+unsigned int* allo_uint_s()
+{
+    return (unsigned int*)malloc(4);
+}
+
+unsigned int* allo_uint_m(int amount)
+{
+    return (unsigned int*)malloc(4 * amount);
+}
+
 //basic deallocation
 
 void allo_delete(void* pnt)

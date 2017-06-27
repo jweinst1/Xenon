@@ -23,6 +23,10 @@ char* allo_char_s();
 
 char* allo_char_m(int amount);
 
+unsigned int* allo_uint_s();
+
+unsigned int* allo_uint_m(int amount);
+
 //basic deallocation
 
 void allo_delete(void* pnt);

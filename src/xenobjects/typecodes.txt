@@ -1,0 +1,8 @@
+TYPECODES
+
+*unsigned*
+--------------------
+0 = NULL
+1 = int
+2 = unsigned int
+3 = char
