@@ -15,13 +15,17 @@ typedef struct {
     void* data;
 } XenonObject;
 
-
+//frees memory and turns object to null
 void obj_del(XenonObject* xbj);
 
 //constructor functions
 //cons_ idiom for a function that constructs 
 
-void obj_cons_int(XenonObject* xbj, int value);
+void obj_cons_null(XenonObject* xbj);
+
+void obj_cons_int(XenonObject* xbj, const int value);
+
+void obj_cons_char(XenonObject* xbj, const char value);
 
 
 

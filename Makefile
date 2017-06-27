@@ -1,7 +1,7 @@
 CC = gcc
 TARGET = xenon
 CFLAGS = -c -Wall
-OBJS = lib/main.o lib/tokenizer.o lib/tokenstate.o lib/varenv.o
+OBJS = lib/main.o lib/tokenizer.o lib/tokenstate.o lib/varenv.o lib/allocator.o
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
 
@@ -15,3 +15,5 @@ lib/tokenstate.o: src/token/tokenstate.c ; $(CC) $(CFLAGS) src/token/tokenstate.
 lib/varenv.o: src/global/varenv.cpp ; $(CC) $(CPPFLAGS) $(CFLAGS) src/global/varenv.cpp -o $@ $(CPPLINK)
 
 lib/allocator.o: src/global/allocator.c ; $(CC) $(CFLAGS) src/global/allocator.c -o $@
+
+lib/xenon_object.o: src/objects/xenon_object.c ; $(CC) $(CFLAGS) src/objects/xenon_object.c -o $@

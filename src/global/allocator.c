@@ -2,17 +2,18 @@
 
 //basic allocation functions
 
-void* allo_of_block(size_t block, int amount)
+void* allo_of_block(size_t block, const int amount)
 {
     return malloc(block * amount);
 }
 
-void* allo_of_code(char code, int amount)
+void* allo_of_code(char code, const int amount)
 {
     switch(code)
     {
         case 'c': return malloc(sizeof(char) * amount);
         case 'i': return malloc(sizeof(int) * amount);
+        case 'u': return malloc(sizeof(unsigned int) * amount);
         default: return NULL;
     }
 }
@@ -31,7 +32,7 @@ int* allo_int_s()
     return (int*)malloc(4);
 }
 
-int* allo_int_m(int amount)
+int* allo_int_m(const int amount)
 {
     return (int*)malloc(4 * amount);
 }
@@ -41,7 +42,7 @@ char* allo_char_s()
     return (char*)malloc(1);
 }
 
-char* allo_char_m(int amount)
+char* allo_char_m(const int amount)
 {
     return (char*)malloc(1*amount);
 }
@@ -51,7 +52,7 @@ unsigned int* allo_uint_s()
     return (unsigned int*)malloc(4);
 }
 
-unsigned int* allo_uint_m(int amount)
+unsigned int* allo_uint_m(const int amount)
 {
     return (unsigned int*)malloc(4 * amount);
 }

@@ -5,9 +5,9 @@
 
 //basic allocation functions
 
-void* allo_of_block(size_t block, int amount);
+void* allo_of_block(size_t block, const int amount);
 
-void* allo_of_code(char code, int amount);
+void* allo_of_code(char code, const int amount);
 
 void* allo_of_size(size_t block);
 
@@ -17,15 +17,15 @@ void* allo_of_size(size_t block);
 
 int* allo_int_s();
 
-int* allo_int_m(int amount);
+int* allo_int_m(const int amount);
 
 char* allo_char_s();
 
-char* allo_char_m(int amount);
+char* allo_char_m(const int amount);
 
 unsigned int* allo_uint_s();
 
-unsigned int* allo_uint_m(int amount);
+unsigned int* allo_uint_m(const int amount);
 
 //basic deallocation
 
