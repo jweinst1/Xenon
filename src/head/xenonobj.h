@@ -4,13 +4,12 @@
 
 
 //used for casting
-typedef unsigned XenonType;
+typedef unsigned char XenonType;
 
 
 
 typedef struct {
     XenonType type;
-    int refc;
 } XenonObject;
 
 
