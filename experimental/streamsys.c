@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,11 +35,9 @@ XenonStream* new_Stream()
 void del_Stream(XenonStream*xs)
 {
     XenonObject** pnt = xs->data;
-    while(pnt++)
-    {
-        free(*pnt);
-    }
-    free(xs);
+    //frees first element
+    free((void*)*pnt);
+    free((void*)xs);
 }
 
 //uses compound literal
@@ -74,5 +71,6 @@ int main()
     XenonStream* strm = new_Stream();
     place_Int(strm, 0, 55);
     printf("The int is placed with val: %d\n", get_Int(strm, 0));
+    del_Stream(strm);
     return 0;
 }
