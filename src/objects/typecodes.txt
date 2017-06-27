@@ -6,3 +6,4 @@ TYPECODES
 1 = int
 2 = unsigned int
 3 = char
+3 = str (char is a 1 length str)

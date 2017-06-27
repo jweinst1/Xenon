@@ -25,7 +25,12 @@ void obj_cons_null(XenonObject* xbj);
 
 void obj_cons_int(XenonObject* xbj, const int value);
 
+void obj_cons_uint(XenonObject* xbj, const unsigned int value);
+
 void obj_cons_char(XenonObject* xbj, const char value);
+
+void obj_cons_str(XenonObject* xbj, const char* value, int length);
+
 
 
 
