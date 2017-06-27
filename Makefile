@@ -1,7 +1,7 @@
 CC = gcc
 TARGET = xenon
 CFLAGS = -c -Wall
-OBJS = lib/main.o lib/tokenizer.o lib/tokenstate.o lib/varenv.o lib/hashfunc.o
+OBJS = lib/main.o lib/tokenizer.o lib/tokenstate.o lib/varenv.o
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
 
@@ -14,5 +14,4 @@ lib/tokenstate.o: src/token/tokenstate.c ; $(CC) $(CFLAGS) src/token/tokenstate.
 
 lib/varenv.o: src/global/varenv.cpp ; $(CC) $(CPPFLAGS) $(CFLAGS) src/global/varenv.cpp -o $@ $(CPPLINK)
 
-lib/hashfunc.o: src/global/hashfunc.c ; $(CC) $(CFLAGS) src/global/hashfunc.c -o $@
-
+lib/allocator.o: src/global/allocator.c ; $(CC) $(CFLAGS) src/global/allocator.c -o $@
