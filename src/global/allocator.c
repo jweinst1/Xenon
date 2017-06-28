@@ -14,6 +14,7 @@ void* allo_of_code(char code, const int amount)
         case 'c': return malloc(sizeof(char) * amount);
         case 'i': return malloc(sizeof(int) * amount);
         case 'u': return malloc(sizeof(unsigned int) * amount);
+        case 's': return malloc(sizeof(short) * amount);
         default: return NULL;
     }
 }
@@ -55,6 +56,16 @@ unsigned int* allo_uint_s()
 unsigned int* allo_uint_m(const int amount)
 {
     return (unsigned int*)malloc(4 * amount);
+}
+
+short* allo_int_s()
+{
+    return (short*)malloc(2);
+}
+
+short* allo_int_m(const int amount)
+{
+    return (short*)malloc(4 * amount);
 }
 
 //basic deallocation

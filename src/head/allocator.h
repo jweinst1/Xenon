@@ -27,6 +27,10 @@ unsigned int* allo_uint_s();
 
 unsigned int* allo_uint_m(const int amount);
 
+short* allo_int_s();
+
+short* allo_int_m(const int amount);
+
 //basic deallocation
 
 void allo_delete(void* pnt);
