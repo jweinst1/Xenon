@@ -1,7 +1,7 @@
 #include "../head/xenon_object.h"
 #include <string.h>
 
-/*
+/*OLD FILE
 * Main file for implementation of the base xenonobject and constructors of basic C types
 */
 

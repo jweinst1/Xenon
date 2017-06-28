@@ -58,14 +58,24 @@ unsigned int* allo_uint_m(const int amount)
     return (unsigned int*)malloc(4 * amount);
 }
 
-short* allo_int_s()
+short* allo_short_s()
 {
     return (short*)malloc(2);
 }
 
-short* allo_int_m(const int amount)
+short* allo_short_m(const int amount)
 {
-    return (short*)malloc(4 * amount);
+    return (short*)malloc(2 * amount);
+}
+
+bool* allo_bool_s()
+{
+    return (bool*)malloc(sizeof(bool));
+}
+
+bool* allo_bool_m(const int amount)
+{
+    return (bool*)malloc(sizeof(bool) * amount);
 }
 
 //basic deallocation

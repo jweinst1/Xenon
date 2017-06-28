@@ -2,6 +2,7 @@
 #define ALLOCATOR_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 //basic allocation functions
 
@@ -27,9 +28,13 @@ unsigned int* allo_uint_s();
 
 unsigned int* allo_uint_m(const int amount);
 
-short* allo_int_s();
+short* allo_short_s();
 
-short* allo_int_m(const int amount);
+short* allo_short_m(const int amount);
+
+bool* allo_bool_s();
+
+bool* allo_bool_m(const int amount);
 
 //basic deallocation
 
