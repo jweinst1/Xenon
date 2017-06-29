@@ -2,7 +2,15 @@
 #define ALLOCATOR_H
 
 #include <stdlib.h>
-#include <stdbool.h>
+#include "xenon_def.h"
+
+//static storage functions
+
+XenonStream_d* allo_stat_xs_d_s();
+
+//static storage counter
+
+int allo_stat_xs_d_c(int ad);
 
 //basic allocation functions
 
@@ -12,32 +20,22 @@ void* allo_of_code(char code, const int amount);
 
 void* allo_of_size(size_t block);
 
-//specialized allocators
-//_s is a single spaces
-//_m is multiple spaces or [array]
+//dynamic stream allocators
+//s means single
 
-int* allo_int_s();
+XenonStream_d* allo_xs_d_s();
 
-int* allo_int_m(const int amount);
+//single allocation of large stream
+XenonStream_dl* allo_xs_dl_s();
 
-char* allo_char_s();
-
-char* allo_char_m(const int amount);
-
-unsigned int* allo_uint_s();
-
-unsigned int* allo_uint_m(const int amount);
-
-short* allo_short_s();
-
-short* allo_short_m(const int amount);
-
-bool* allo_bool_s();
-
-bool* allo_bool_m(const int amount);
-
-//basic deallocation
+//basic deallocations
 
 void allo_delete(void* pnt);
+
+void allo_del_xs_d(XenonStream_d* xs);
+
+void allo_del_xs_dl(XenonStream_dl* xs);
+
+
 
 #endif

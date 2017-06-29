@@ -1,5 +1,21 @@
 #include "../head/allocator.h"
-#include "../head/xenon_def.h"
+
+//keeps track of storage of xs_d
+int allo_stat_xs_d_c(int ad)
+{
+    static int STOR_C = 0;
+    STOR_C += ad;
+    return STOR_C < 1000;
+}
+
+
+XenonStream_d* allo_stat_xs_d_s()
+{
+    static XenonStream_d STATIC_STORAGE_D[1000];
+    static int STORAGE_CURR = -1;
+    allo_stat_xs_d_c(1);
+    return STATIC_STORAGE_D + (STORAGE_CURR++);
+}
 
 //basic allocation functions
 
@@ -25,58 +41,21 @@ void* allo_of_size(size_t block)
     return malloc(block);
 }
 
-//specialized allocators
+
 //_s is a single spaces
 //_m is multiple spaces or [array]
 
-int* allo_int_s()
+//s means single
+
+XenonStream_d* allo_xs_d_s()
 {
-    return (int*)malloc(4);
+    return (XenonStream_d*)malloc(sizeof(XenonStream_d));
 }
 
-int* allo_int_m(const int amount)
+//single allocation of large stream
+XenonStream_dl* allo_xs_dl_s()
 {
-    return (int*)malloc(4 * amount);
-}
-
-char* allo_char_s()
-{
-    return (char*)malloc(1);
-}
-
-char* allo_char_m(const int amount)
-{
-    return (char*)malloc(1*amount);
-}
-
-unsigned int* allo_uint_s()
-{
-    return (unsigned int*)malloc(4);
-}
-
-unsigned int* allo_uint_m(const int amount)
-{
-    return (unsigned int*)malloc(4 * amount);
-}
-
-short* allo_short_s()
-{
-    return (short*)malloc(2);
-}
-
-short* allo_short_m(const int amount)
-{
-    return (short*)malloc(2 * amount);
-}
-
-bool* allo_bool_s()
-{
-    return (bool*)malloc(sizeof(bool));
-}
-
-bool* allo_bool_m(const int amount)
-{
-    return (bool*)malloc(sizeof(bool) * amount);
+    return (XenonStream_dl*)malloc(sizeof(XenonStream_dl));
 }
 
 //basic deallocation
@@ -84,4 +63,14 @@ bool* allo_bool_m(const int amount)
 void allo_delete(void* pnt)
 {
     free(pnt);
+}
+
+void allo_del_xs_d(XenonStream_d* xs)
+{
+    free(xs);
+}
+
+void allo_del_xs_dl(XenonStream_dl* xs)
+{
+    free(xs);
 }
