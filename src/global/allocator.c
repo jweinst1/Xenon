@@ -1,4 +1,5 @@
 #include "../head/allocator.h"
+#include "../head/xenon_def.h"
 
 //basic allocation functions
 
