@@ -2,7 +2,7 @@
 #ifndef XENON_DEF_H
 #define XENON_DEF_H
 
-#include "allocator.h"
+
 
 //dynamic formulated union for different types of integers
 typedef union
