@@ -2,7 +2,7 @@
 #ifndef XENON_DEF_H
 #define XENON_DEF_H
 
-//dynamic formulated union
+//dynamic formulated union for different types of integers
 typedef union
 {
     char i8;
@@ -20,24 +20,36 @@ typedef union
 
 //dynamic based stream
 
-typedef struct
+struct XenonStream_d
 {
     unsigned char types[10];
     XenonValue data[10];
-} XenonStream_d;
+    struct XenonStream_d* next;
+};
 
-typedef struct
+typedef struct XenonStream_d XenonStream_d;
+
+//larger sized block for bigger data streams
+struct XenonStream_dl
 {
     unsigned char types[50];
     XenonValue data[50];
-} XenonStream_dl;
+    struct XenonStream_dl* next;
+};
+
+typedef struct XenonStream_dl XenonStream_dl;
 
 
-//typed integer stream
-typedef struct
+
+
+//typed string stream block
+struct XenonStream_s
 {
-    int data[10];
-} XenonStream_i;
+    char data[20];
+    struct XenonStream_s* next;
+};
+
+typedef struct XenonStream_s XenonStream_s;
 
 
 #endif

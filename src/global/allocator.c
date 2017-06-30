@@ -58,7 +58,14 @@ XenonStream_dl* allo_xs_dl_s()
     return (XenonStream_dl*)malloc(sizeof(XenonStream_dl));
 }
 
-
+XenonStream_d** allo_xs_d_arr(const int amount)
+{
+    int i;
+    XenonStream_d** xsarr = (XenonStream_d**)malloc(sizeof(XenonStream_d*) * amount);
+    for(i=0;i<amount;i++) *xsarr++ = allo_del_xs_d();
+    return xsarr;
+    
+}
 
 //basic deallocation
 

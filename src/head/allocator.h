@@ -25,6 +25,9 @@ void* allo_of_size(size_t block);
 
 XenonStream_d* allo_xs_d_s();
 
+//allocates array of stream pointers at once
+XenonStream_d** allo_xs_d_arr(const int amount);
+
 //single allocation of large stream
 XenonStream_dl* allo_xs_dl_s();
 
