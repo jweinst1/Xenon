@@ -1,7 +1,10 @@
 #ifndef XENON_STREAM_SMALL_H
 #define XENON_STREAM_SMALL_H
 
+#include <stdlib.h>
+
 //small stream implementation
+//only contains single slot of data
 
 struct XenonStream_s
 {
@@ -24,5 +27,17 @@ struct XenonStream_s
 };
 
 typedef struct  XenonStream_s XenonStream_s;
+
+//allocates on instance of xss
+inline XenonStream_s* xss_allo_s()
+{
+    return (XenonStream_s*)malloc(sizeof(XenonStream_s));
+}
+
+//frees one instance of xss
+inline void xss_free_s(XenonStream_s* xss)
+{
+    free(xss);
+}
 
 #endif

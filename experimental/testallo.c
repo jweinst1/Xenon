@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include "../src/head/allocator.h"
+#include "../src/head/xenon_st_s.h"
 
 int main()
 {
-    int i;
-    for(i=0;i<1000;i++) printf("static cache is open: %d\n", allo_stat_xs_d_c(1));
+    XenonStream_s* g = xss_allo_s();
+    g->type = 3;
+    printf("the type is %d", g->type);
     return 0;
 }
