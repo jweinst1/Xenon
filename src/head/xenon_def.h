@@ -11,7 +11,6 @@ typedef union
     long i64;
     float f;
     double d;
-    char* str;
     
     unsigned char u8;
     unsigned short u16;

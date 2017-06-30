@@ -58,6 +58,8 @@ XenonStream_dl* allo_xs_dl_s()
     return (XenonStream_dl*)malloc(sizeof(XenonStream_dl));
 }
 
+
+
 //basic deallocation
 
 void allo_delete(void* pnt)

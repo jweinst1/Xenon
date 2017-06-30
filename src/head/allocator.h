@@ -28,6 +28,7 @@ XenonStream_d* allo_xs_d_s();
 //single allocation of large stream
 XenonStream_dl* allo_xs_dl_s();
 
+
 //basic deallocations
 
 void allo_delete(void* pnt);
