@@ -42,6 +42,13 @@ inline void xss_free_s(XenonStream_s* xss)
     free(xss);
 }
 
+//frees and sets to null.
+inline void xss_freen_s(XenonStream_s* xss)
+{
+    free(xss);
+    xss = NULL;
+}
+
 //pushes back one stream_s value
 inline XenonStream_s* xss_push(XenonStream_s* xss)
 {
@@ -62,12 +69,25 @@ inline unsigned char xss_type(XenonStream_s* xss)
     return xss->type;
 }
 
+//bools
+
 inline int xss_next_null(XenonStream_s* xss)
 {
     return xss->next == NULL;
 }
 
+inline int xss_check_type(XenonStream_s* xss, unsigned char ch)
+{
+    return xss->type == ch;
+}
+
 /*SET GET functions*/
+
+//sets type
+inline void xss_set_type(XenonStream_s* xss, unsigned char ch)
+{
+    xss->type = ch;
+}
 
 inline void xss_set_char(XenonStream_s* xss, const char ch)
 {
