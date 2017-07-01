@@ -149,6 +149,62 @@ inline void xss_set_f(XenonStream_s* xss, const float ch)
     xss->data.f = ch;
 }
 
+inline char xss_get_i8(XenonStream_s* xss)
+{
+    return xss->data.i8;
+}
+
+inline short xss_get_i16(XenonStream_s* xss)
+{
+    return xss->data.i16;
+}
+
+inline int xss_get_i32(XenonStream_s* xss)
+{
+    return xss->data.i32;
+}
+
+inline long xss_get_i64(XenonStream_s* xss)
+{
+    return xss->data.i64;
+}
+
+inline unsigned char xss_get_u8(XenonStream_s* xss)
+{
+    return xss->data.u8;
+}
+
+inline unsigned short xss_get_u16(XenonStream_s* xss)
+{
+    return xss->data.u16;
+}
+
+inline unsigned int xss_get_u32(XenonStream_s* xss)
+{
+    return xss->data.u32;
+}
+
+inline unsigned long xss_get_u64(XenonStream_s* xss)
+{
+    return xss->data.u64;
+}
+
+inline float xss_get_f(XenonStream_s* xss)
+{
+    return xss->data.f;
+}
+
+inline double xss_get_d(XenonStream_s* xss)
+{
+    return xss->data.d;
+}
+
+//comparisons
+
+inline int xss_eq_type(XenonStream_s* xss1, XenonStream_s* xss2)
+{
+    return xss1->type == xss2->type;
+}
 
 
 #endif
