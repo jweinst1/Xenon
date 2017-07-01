@@ -206,5 +206,11 @@ inline int xss_eq_type(XenonStream_s* xss1, XenonStream_s* xss2)
     return xss1->type == xss2->type;
 }
 
+//checks if next is also same type
+inline int xxs_eq_ntype(XenonStream_s* xss)
+{
+    return xss->next != NULL && xss->type == xss->next->type;
+}
+
 
 #endif
