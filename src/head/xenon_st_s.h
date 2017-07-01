@@ -89,10 +89,64 @@ inline void xss_set_type(XenonStream_s* xss, unsigned char ch)
     xss->type = ch;
 }
 
-inline void xss_set_char(XenonStream_s* xss, const char ch)
+inline void xss_set_i8(XenonStream_s* xss, const char ch)
 {
     xss->type = 0;
     xss->data.i8 = ch;
+}
+
+inline void xss_set_i16(XenonStream_s* xss, const short ch)
+{
+    xss->type = 1;
+    xss->data.i16 = ch;
+}
+
+inline void xss_set_i32(XenonStream_s* xss, const int ch)
+{
+    xss->type = 2;
+    xss->data.i32 = ch;
+}
+
+inline void xss_set_i64(XenonStream_s* xss, const long ch)
+{
+    xss->type = 3;
+    xss->data.i64 = ch;
+}
+
+inline void xss_set_u8(XenonStream_s* xss, unsigned char ch)
+{
+    xss->type = 4;
+    xss->data.u8 = ch;
+}
+
+inline void xss_set_u16(XenonStream_s* xss, unsigned short ch)
+{
+    xss->type = 5;
+    xss->data.u16 = ch;
+}
+
+inline void xss_set_u32(XenonStream_s* xss, unsigned int ch)
+{
+    xss->type = 6;
+    xss->data.u32 = ch;
+}
+
+inline void xss_set_u64(XenonStream_s* xss, unsigned long ch)
+{
+    xss->type = 7;
+    xss->data.u64 = ch;
+}
+
+inline void xss_set_d(XenonStream_s* xss, const double ch)
+{
+    xss->type = 8;
+    xss->data.d = ch;
+}
+
+inline void xss_set_f(XenonStream_s* xss, const float ch)
+{
+    xss->type = 9;
+    xss->data.f = ch;
 }
 
 
