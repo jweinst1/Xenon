@@ -36,14 +36,9 @@ inline XenonStream_s* xss_allo_s()
     return xss;
 }
 
-//frees one instance of xss
-inline void xss_free_s(XenonStream_s* xss)
-{
-    free(xss);
-}
 
 //frees and sets to null.
-inline void xss_freen_s(XenonStream_s* xss)
+inline void xss_free_s(XenonStream_s* xss)
 {
     free(xss);
     xss = NULL;
