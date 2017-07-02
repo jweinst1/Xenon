@@ -1,12 +1,5 @@
-import ctypes
+from ctypes import *
 import os
 
-temp = os.path.abspath(__file__)
-temp = os.path.realpath(temp)
-temp = os.path.dirname(temp)
-temp = os.path.join(temp, 'libxss.so')
-
-
-xsstest = ctypes.CDLL('libxss.so')
-
-print xsstest.xss_test_1()
+xss = cdll.LoadLibrary(os.path.abspath("libxss.so.1"))
+print xss.xss_test_1()

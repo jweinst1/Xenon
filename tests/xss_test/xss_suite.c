@@ -4,6 +4,6 @@
 void xss_test_1()
 {
     XenonStream_s* x = xss_allo_s();
-    xss_free_s(x);
-    x == NULL ? printf("TEST xss_test_1 PASSED") : printf("TEST xss_test_1 FAILED");
+    xss_set_i32(x, 3);
+    x->data.i32 == 3 ? printf("TEST xss_test_1 PASSED\n") : printf("TEST xss_test_1 FAILED\n");
 }
