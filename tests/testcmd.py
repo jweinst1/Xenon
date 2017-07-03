@@ -1,5 +1,11 @@
 # File for parsing test commands
 
+import sys
+from suitenames import SUITES
 
-def process_cmd(string):
-    pass
+def val_flag(f):
+    flags = {
+        "-f":True,
+        "-a":True
+    }
+    return f in flags
