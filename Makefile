@@ -4,6 +4,7 @@ CFLAGS = -c -Wall
 OBJS = lib/main.o lib/tokenizer.o lib/tokenstate.o lib/varenv.o lib/allocator.o
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
+INC_DIR = src/head
 
 
 all: $(TARGET)
