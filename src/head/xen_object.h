@@ -5,12 +5,20 @@
 
 
 
-#define XenObject_HANDLE unsigned char type;
+#define XenObject_HANDLE unsigned char type; \
+        struct XenObject * next; \
+        struct XenObject * prev;
 
-typedef struct
+struct XenObject
 {
     XenObject_HANDLE
-} XenObject;
+};
+
+typedef struct XenObject XenObject;
+
+
+
+
 
 
 #define XenObject_GETTYPE(xo) xo->type
@@ -20,6 +28,14 @@ typedef struct
 #define XenObject_SAMETYPE(xo1, xo2) xo1->type == xo2->type
 
 #define XenObject_CASTOBJ(xo) (XenObject*)xo
+
+#define XenObject_CONNECT_NEXT(xo1, xo2) do { \
+                    xo1->next = xo2; \
+                    xo2->prev = xo1; } while(0)
+                    
+#define XenObject_CONNECT_PREV(xo1, xo2) do { \
+                    xo1->prev = xo2; \
+                    xo2->next = xo1; } while(0)
 
 
 #endif
