@@ -5,8 +5,10 @@ import os
 
 def xo_unit_tests():
     xounit = cdll.LoadLibrary(os.path.abspath("binso/libunitxo.so.1"))
-    xounit.xo_test_settype()
+    xounit.xo_test_1_settype()
+    xounit.xo_test_2_sametype()
     
     
     
-xo_unit_tests()
+def run_all():
+    xo_unit_tests()
