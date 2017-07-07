@@ -10,4 +10,6 @@
 
 #define TEST_IS_EQUAL_N(arg1, arg2, n) arg1 == arg2 ? printf("TEST PASSED %d \n", n) : printf("TEST FAILED %d \n", n)
 
+#define TEST_IS_EQUAL_S(arg1, arg2, s) arg1 == arg2 ? printf("TEST PASSED %s \n", s) : printf("TEST FAILED %s \n", s)
+
 #endif
