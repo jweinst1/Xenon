@@ -2,7 +2,7 @@
 #define XEN_OBJECT_H
 
 //defines the basic XenObject interface structure for streams
-
+#include "stdlib.h"
 
 
 #define XenObject_HANDLE unsigned char type; \
@@ -84,7 +84,9 @@ typedef struct XenObject XenObject;
     }while(0)
 
 
+//functions
 
+void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
 
 
 #endif
