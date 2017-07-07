@@ -1,3 +1,6 @@
+#ifndef UNIT_XO_TEST_H
+#define UNIT_XO_TEST_H
+
 #include "xen_object.h"
 #include "test_eq.h"
 
@@ -41,3 +44,5 @@ void xo_test_4_insertnext()
     TEST_IS_TRUE_N(XenObject_SAME_PNT(three, one->next), 4);
     free(one); free(two); free(three);
 }
+
+#endif
