@@ -90,18 +90,29 @@ typedef struct XenObject XenObject;
 
 void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
 
-static inline int XenObject_length(XenObject* xo)
-{
-    int i = 1;
-    while(xo->next != NULL) {i++; xo = xo->next;}
-    return i;
-}
+int XenObject_length(XenObject* xo);
 
-static inline void XenObject_append(XenObject* xo1, XenObject* xo2)
+
+static inline void 
+XenObject_append(XenObject* xo1, XenObject* xo2)
 {
     XenObject_ADV_BACK(xo1);
     xo1->next = xo2;
     xo2->prev = xo1;
+}
+
+static inline XenObject*
+XenObject_get_back(XenObject* xo)
+{
+    XenObject_ADV_BACK(xo);
+    return xo;
+}
+
+static inline XenObject*
+XenObject_get_front(XenObject* xo)
+{
+    XenObject_ADV_FRONT(xo);
+    return xo;
 }
 
 

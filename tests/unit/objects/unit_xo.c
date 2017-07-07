@@ -2,6 +2,8 @@
 #include "test_eq.h"
 
 
+
+
 //unit tests for xenon object
 
 void xo_test_1_settype()
@@ -74,6 +76,22 @@ void xo_test_6_append()
     TEST_IS_TRUE_S(XenObject_SAME_PNT(one, three), "6 append");
 }
 
+void xo_test_7_getback()
+{
+    XenObject* one = malloc(sizeof(XenObject));
+    XenObject* two = malloc(sizeof(XenObject));
+    XenObject* three = malloc(sizeof(XenObject));
+    XenObject_SET_NP_NULL(one);
+    XenObject_SET_NP_NULL(two);
+    XenObject_SET_NP_NULL(three);
+    XenObject_append(one, two);
+    XenObject_append(one, three);
+    XenObject* other = XenObject_get_back(one);
+    TEST_IS_TRUE_S(XenObject_SAME_PNT(other, three), "7 getback");
+}
+
+
+
 int main(){
     xo_test_1_settype();
     xo_test_2_sametype();
@@ -81,5 +99,6 @@ int main(){
     xo_test_4_insertnext();
     xo_test_5_length();
     xo_test_6_append();
+    xo_test_7_getback();
     return 0;
 }

@@ -18,3 +18,9 @@ void XenObject_insert_next(XenObject* xo1, XenObject* xo2)
     }
 }
 
+int XenObject_length(XenObject* xo)
+{
+    int i = 1;
+    while(xo->next != NULL) {i++; xo = xo->next;}
+    return i;
+}
