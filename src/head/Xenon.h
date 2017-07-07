@@ -4,5 +4,6 @@
 //main header include
 
 #include "xen_object.h"
+#include "xen_bool.h"
 
 #endif
