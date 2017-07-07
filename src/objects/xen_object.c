@@ -9,9 +9,12 @@ void XenObject_insert_next(XenObject* xo1, XenObject* xo2)
         xo1->next = xo2;
         XenObject_ADV_BACK(xo2);
         xo2->next = temp;
+        temp->prev = xo2;
     }
     else
     {
         xo1->next = xo2;
+        xo2->prev = xo1;
     }
 }
+
