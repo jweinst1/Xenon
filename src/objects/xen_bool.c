@@ -1,4 +1,4 @@
-#include "xen_bool.h"
+#include "Xenon.h"
 
 XenBool* XenBool_new(unsigned char s)
 {
@@ -12,4 +12,14 @@ XenBool* XenBool_new(unsigned char s)
 int XenBool_get_int(XenBool* xb)
 {
     return (xb->state) ? 1 : 0;
+}
+
+int XenBool_and_int(XenBool* xb, const int bl)
+{
+    return bl && (xb->state);
+}
+
+int XenBool_or_int(XenBool* xb, const int bl)
+{
+    return bl || (xb->state);
 }

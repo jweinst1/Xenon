@@ -40,6 +40,10 @@ XenBool* XenBool_new(unsigned char s);
 
 int XenBool_get_int(XenBool* xb);
 
+int XenBool_and_int(XenBool* xb, const int bl);
+
+int XenBool_or_int(XenBool* xb, const int bl);
+
 //todo ;>> deletion of stream will require different mechanism to work with all types
 static inline void
 XenBool_del(XenBool* xb)
