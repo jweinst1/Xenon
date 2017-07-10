@@ -8,6 +8,7 @@
 
 #include "xen_object.h"
 #include "xen_bool.h"
+#include "xen_char.h"
 
 
 #endif

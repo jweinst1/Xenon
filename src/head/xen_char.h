@@ -10,13 +10,23 @@ typedef struct {
     char value;
 } XenChar;
 
-#define XenChar_ISDIGIT(xc) isdigit(xc)
+#define XenChar_IS_DIGIT(xc) isdigit(xc->value)
 
-#define XenChar_ISALPHA(xc) isalpha(xc)
+#define XenChar_IS_ALPHA(xc) isalpha(xc->value)
+
+#define XenChar_IS_SPACE(xc) isspace(xc->value)
+
+#define XenChar_MARK_TYPE(xc) xc->type = 2
 
 #define XenChar_GET_CHAR(xc) xc->value
 
+#define XenChar_GET_UCHAR(xc) (unsigned char)(xc->value)
+
+#define XenChar_SET_CHAR(xc, ch) xc->value = ch
+
 #define XenChar_GET_INT(xc) (int)(xc->value)
+
+#define XenChar_SAME_CHAR(xc1, xc2) (xc1->value) == (xc2->value)
 
 //makes new xenchar object
 XenChar* XenChar_new(char ch);

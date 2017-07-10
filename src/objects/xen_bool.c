@@ -6,6 +6,7 @@ XenBool* XenBool_new(unsigned char s)
     newbool->next = NULL;
     newbool->next = NULL;
     XenBool_MARK_TYPE(newbool);
+    newbool->state = s;
     return newbool;
 }
 
