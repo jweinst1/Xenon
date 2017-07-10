@@ -1,6 +1,11 @@
 #ifndef XEN_BOOL_H
 #define XEN_BOOL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 //boolean object of xenon language
 //type 1
 
@@ -51,6 +56,8 @@ XenBool_del(XenBool* xb)
     free(xb);
 }
 
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif

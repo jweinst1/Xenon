@@ -1,8 +1,12 @@
 #ifndef XEN_OBJECT_H
 #define XEN_OBJECT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //defines the basic XenObject interface structure for streams
-#include "stdlib.h"
+
 
 
 #define XenObject_HANDLE unsigned char type; \
@@ -114,6 +118,10 @@ XenObject_get_front(XenObject* xo)
     XenObject_ADV_FRONT(xo);
     return xo;
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif
