@@ -23,6 +23,8 @@ typedef struct
 
 #define XenBool_IS_FALSE(xb) xb->state == 0
 
+#define XenBool_STATE(xb) xb->state
+
 #define XenBool_FLIP(xb) xb->state == 0 ? xb->state = 1: xb->state = 0
 
 #define XenBool_SET_TRUE(xb) xb->state = 1
