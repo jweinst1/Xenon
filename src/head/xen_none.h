@@ -9,7 +9,9 @@ The none object is used as a xenon type to represent no type, safer than using N
 extern "C" {
 #endif
 
-
+typedef struct {
+    XenObject_HANDLE
+} XenNone;
 
 #ifdef __cplusplus
 }

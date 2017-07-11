@@ -23,14 +23,29 @@ typedef struct XenStream XenStream;
 
 #define XenStream_IS_EMPTY(xs) xs->front == NULL && xs->back == NULL
 
-#define XenStream_PUT(xs, xo) do { \
-                   XenObject_CONNECT_PREV(xs->front, xo); \
-                   xs->front = xo; }while(0)
-                   
-#define XenStream_APPEND(xs, xo) do { \
-                   XenObject_CONNECT_NEXT(xs->back, xo); \
+#define XenStream_ADD_FIRST(xs, xo) do { \
+                   xs->front = xo; \
                    xs->back = xo; }while(0)
 
+#define XenStream_PUT(xs, xo) do { \
+                   if(XenStream_IS_EMPTY(xs)) XenStream_ADD_FIRST(xs, xo); \
+                   else {\
+                      XenObject_CONNECT_PREV(xs->front, xo); \
+                      xs->front = xo; } \
+                }while(0)
+                   
+#define XenStream_APPEND(xs, xo) do { \
+                   if(XenStream_IS_EMPTY(xs)) XenStream_ADD_FIRST(xs, xo); \
+                   else {\
+                      XenObject_CONNECT_NEXT(xs->back, xo); \
+                      xs->back = xo; } \
+                }while(0)
+                
+void XenStream_put(XenStream* xs, XenObject* xo);
+
+void XenStream_append(XenStream* xs, XenObject* xo);
+
+void XenStream_set(XenStream* xs, XenObject* xo);
 
 #ifdef __cplusplus
 }
