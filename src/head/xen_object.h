@@ -26,6 +26,10 @@ typedef struct XenObject XenObject;
 #define XenObject_SET_NP_NULL(xo) do { \
                    xo->next = NULL; \
                    xo->prev = NULL;} while(0)
+                   
+#define XenObject_SET_N_NULL(xo) xo->next = NULL
+
+#define XenObject_SET_P_NULL(xo) xo->prev = NULL
 
 #define XenObject_GET_TYPE(xo) xo->type
 
@@ -33,7 +37,7 @@ typedef struct XenObject XenObject;
 
 #define XenObject_SAME_TYPE(xo1, xo2) xo1->type == xo2->type
 
-#define XenObject_SAME_PNT(xo1, xo2) xo1 == xo2
+#define XenObject_SAME_PNT(xo1, xo2) xo1 == xo2 
 
 #define XenObject_CAST(xo) (XenObject*)xo
 
