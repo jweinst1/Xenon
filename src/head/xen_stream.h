@@ -40,6 +40,17 @@ typedef struct XenStream XenStream;
                       XenObject_CONNECT_NEXT(xs->back, xo); \
                       xs->back = xo; } \
                 }while(0)
+ 
+//versions of put and append which do not check if empty               
+#define XenStream_FPUT(xs, xo) do { \
+                   XenObject_CONNECT_PREV(xs->front, xo); \
+                   xs->front = xo; }while(0)
+                   
+#define XenStream_FAPPEND(xs, xo) do { \
+                   XenObject_CONNECT_NEXT(xs->back, xo); \
+                   xs->back = xo; }while(0)
+   
+XenStream* XenStream_new();   
                 
 void XenStream_put(XenStream* xs, XenObject* xo);
 

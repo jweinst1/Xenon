@@ -13,6 +13,8 @@ typedef struct {
     XenObject_HANDLE
 } XenNone;
 
+#define XenNone_MARK_TYPE(xn) xn->type = 0
+
 #ifdef __cplusplus
 }
 #endif

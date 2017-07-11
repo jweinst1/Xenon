@@ -10,5 +10,7 @@
 #include "xen_bool.h"
 #include "xen_char.h"
 
+#include "xen_stream.h"
+
 
 #endif
