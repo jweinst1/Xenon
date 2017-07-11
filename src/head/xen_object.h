@@ -109,6 +109,8 @@ XenObject_append(XenObject* xo1, XenObject* xo2)
     xo2->prev = xo1;
 }
 
+void XenObject_put(XenObject* xo1, XenObject* xo2);
+
 static inline XenObject*
 XenObject_get_back(XenObject* xo)
 {

@@ -24,3 +24,11 @@ int XenObject_length(XenObject* xo)
     while(xo->next != NULL) {i++; xo = xo->next;}
     return i;
 }
+
+//function version so as not to consume pointer
+void XenObject_put(XenObject* xo1, XenObject* xo2)
+{
+    XenObject_ADV_FRONT(xo1);
+    xo2->next = xo1;
+    xo1->prev = xo2;
+}
