@@ -22,7 +22,6 @@ typedef struct XenObject XenObject;
 
 
 
-
 #define XenObject_SET_NP_NULL(xo) do { \
                    xo->next = NULL; \
                    xo->prev = NULL;} while(0)

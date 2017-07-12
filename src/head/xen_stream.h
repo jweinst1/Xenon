@@ -56,6 +56,11 @@ void XenStream_put(XenStream* xs, XenObject* xo);
 
 void XenStream_append(XenStream* xs, XenObject* xo);
 
+XenObject* XenStream_pop(XenStream* xs);
+
+XenObject* XenStream_shift(XenStream* xs);
+
+
 void XenStream_set(XenStream* xs, XenObject* xo);
 
 #ifdef __cplusplus

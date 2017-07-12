@@ -42,3 +42,40 @@ void XenStream_set(XenStream* xs, XenObject* xo)
     xs->front = XenObject_get_front(xo);
     xs->back = XenObject_get_back(xo);
 }
+
+//gets and remove object at back end
+XenObject* XenStream_pop(XenStream* xs)
+{
+    if(XenStream_IS_EMPTY(xs)) return NULL;
+    
+    XenObject* xopop = xs->back;
+    if(XenStream_IS_SINGLET(xs))
+    {
+        XenStream_SET_FB_NULL(xs);
+        return xopop;
+    }
+    else
+    {
+        xs->back = xs->back->prev;
+        return xopop;
+    }
+    
+}
+
+//gets and remove object at front end
+XenObject* XenStream_shift(XenStream* xs)
+{
+    if(XenStream_IS_EMPTY(xs)) return NULL;
+    
+    XenObject* xopop = xs->front;
+    if(XenStream_IS_SINGLET(xs))
+    {
+        XenStream_SET_FB_NULL(xs);
+        return xopop;
+    }
+    else
+    {
+        xs->back = xs->front->next;
+        return xopop;
+    } 
+}
