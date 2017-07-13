@@ -12,6 +12,7 @@
 
 #include "xen_stream.h"
 #include "xen_inst.h"
+#include "xen_reaction.h"
 
 
 #endif
