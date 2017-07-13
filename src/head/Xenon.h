@@ -11,6 +11,7 @@
 #include "xen_char.h"
 
 #include "xen_stream.h"
+#include "xen_inst.h"
 
 
 #endif
