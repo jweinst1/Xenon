@@ -29,7 +29,9 @@ typedef struct XenReaction XenReaction;
 
 #define XenReaction_GET_ARGC(xrx) xrx->arg_count
 
+#define XenReaction_CONNECT(xrx1, xrx2) xrx1->path = xrx2
 
+#define XenReaction_GET_ARG(xrx, ind) xrx->args[ind]
 
 #ifdef __cplusplus
 }
