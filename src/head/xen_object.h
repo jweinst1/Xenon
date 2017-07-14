@@ -9,7 +9,7 @@ extern "C" {
 
 
 
-#define XenObject_HANDLE unsigned char type; \
+#define XenObject_HANDLE XenType type; \
         struct XenObject * next; \
         struct XenObject * prev;
 

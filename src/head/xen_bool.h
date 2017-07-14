@@ -17,7 +17,7 @@ typedef struct
     unsigned char state;
 } XenBool;
 
-#define XenBool_MARK_TYPE(xb) xb->type = 1
+#define XenBool_MARK_TYPE(xb) xb->type = XenType_Bool
 
 #define XenBool_IS_TRUE(xb) xb->state == 1
 

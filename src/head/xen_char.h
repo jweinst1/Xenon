@@ -16,7 +16,7 @@ typedef struct {
 
 #define XenChar_IS_SPACE(xc) isspace(xc->value)
 
-#define XenChar_MARK_TYPE(xc) xc->type = 2
+#define XenChar_MARK_TYPE(xc) xc->type = XenType_Char
 
 #define XenChar_GET_CHAR(xc) xc->value
 
