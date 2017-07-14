@@ -33,6 +33,8 @@ typedef struct XenReaction XenReaction;
 
 #define XenReaction_GET_ARG(xrx, ind) xrx->args[ind]
 
+#define XenReaction_SET_INST(xrx, ins) xrx->instruction = ins
+
 #ifdef __cplusplus
 }
 #endif

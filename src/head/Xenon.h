@@ -6,13 +6,17 @@
 
 //main header include
 
+#include "xen_type.h"
 #include "xen_object.h"
+
 #include "xen_bool.h"
 #include "xen_char.h"
 
 #include "xen_stream.h"
 #include "xen_inst.h"
 #include "xen_reaction.h"
+
+#include "cons_token.h"
 
 
 #endif
