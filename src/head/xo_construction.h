@@ -31,6 +31,16 @@ typedef struct
 
 #define XoConsToken_NEW malloc(sizeof(XoConsToken))
 
+XoConsToken* XoConsToken_from_void(XenType type, void* data);
+
+XoConsToken* XoConsToken_from_bool(const int state);
+
+XoConsToken* XoConsToken_from_char(const char ch);
+
+XenonObject* XoConsToken_cons_obj(XoConsToken* xoct);
+
+
+
 
 
 

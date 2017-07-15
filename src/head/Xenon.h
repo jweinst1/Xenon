@@ -16,7 +16,7 @@
 #include "xen_inst.h"
 #include "xen_reaction.h"
 
-#include "cons_token.h"
+#include "xo_construction.h"
 
 
 #endif
