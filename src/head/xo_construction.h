@@ -17,7 +17,7 @@ typedef struct
 
 #define XoConsToken_CAST_TYPE(xoct, ty) (ty*)xoct->data
 
-#define XoConsToken_DEREF_TYPE(xoct, ty) *(ty*)xoct->data
+#define XoConsToken_DEREF_DATA(xoct, ty) *(ty*)xoct->data
 
 #define XoConsToken_INDEX_DEREF(xoct, ty, ind) ((ty*)xoct->data)[ind]
 
@@ -31,13 +31,20 @@ typedef struct
 
 #define XoConsToken_NEW malloc(sizeof(XoConsToken))
 
+//deletes cons token through macro
+#define XoConsToken_DELETE(xoct) do { \
+                         free(xoct->data); \
+                         free(xoct); \
+                         xoct = NULL;}while(0)
+                         
+
 XoConsToken* XoConsToken_from_void(XenType type, void* data);
 
-XoConsToken* XoConsToken_from_bool(const int state);
+XoConsToken* XoConsToken_from_bool(const unsigned char state);
 
 XoConsToken* XoConsToken_from_char(const char ch);
 
-XenonObject* XoConsToken_cons_obj(XoConsToken* xoct);
+XenObject* XoConsToken_cons_obj(XoConsToken* xoct);
 
 
 
