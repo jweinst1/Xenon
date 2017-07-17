@@ -1,5 +1,3 @@
-#include "../head/hashfunc.h"
-
 unsigned long xenon_hash(unsigned char *str)
 {
     unsigned long hash = 5381;
