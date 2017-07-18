@@ -17,6 +17,7 @@
 #include "xen_reaction.h"
 
 #include "xo_construction.h"
+#include "xenenv.h"
 
 
 #endif
