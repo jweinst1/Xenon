@@ -15,9 +15,9 @@ typedef struct {
     XenObject_HANDLE
 } XenNone;
 
-#define XenNone_MARK_TYPE(xn) xn->type = 0
+#define XenNone_MARK_TYPE(xn) xn->type = XenType_None
 
-#define XenNone_IS_NONE(xn) xn->type == 0
+#define XenNone_IS_NONE(xn) xn->type == XenType_None
 
 #ifdef __cplusplus
 }
