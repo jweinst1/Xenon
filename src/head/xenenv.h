@@ -6,33 +6,45 @@ extern "C" {
 #endif
 
 //container structure for variable environment
-struct EnvContainer
+struct XenEnvBox
 {
     XenObject* obj;
-    struct EnvContainer* link;
+    struct XenEnvBox* link;
 };
 
-typedef struct EnvContainer EnvContainer;
+typedef struct XenEnvBox XenEnvBox;
 
-#define EnvContainer_SET_NULL_OL(ec) do {\
+#define XenEnvBox_SET_NULL_OL(ec) do {\
                     ec->obj = NULL; \
                     ec->link = NULL;}while(0)
                     
-#define EnvContainer_SET_NULL_O(ec) ec->obj = NULL
+#define XenEnvBox_SET_NULL_O(ec) ec->obj = NULL
 
-#define EnvContainer_SET_NULL_L(ec) ec->link = NULL
+#define XenEnvBox_SET_NULL_L(ec) ec->link = NULL
 
-#define EnvContainer_IS_NULL_O(ec) ec->obj == NULL
+#define XenEnvBox_IS_NULL_O(ec) ec->obj == NULL
 
-#define EnvContainer_IS_NULL_L(ec) ec->link == NULL
+#define XenEnvBox_IS_NULL_L(ec) ec->link == NULL
 
-#define EnvContainer_INIT {NULL, NULL}
+#define XenEnvBox_INIT {NULL, NULL}
+
+void XenEnvBox_del(XenEnvBox* xeb);
+
+#define XenEnv_SIZE 5000
+
+#define XenEnv_LOAD_FACTOR(xenv) xenv->ocount / 5000
 
 typedef struct
 {
-    EnvContainer* table;
-    long osize;
+    XenEnvBox* table;
+    int icount; //total items
+    int ocount; //buckets occupied
 } XenEnv;
+
+XenEnv* XenEnv_new();
+
+//primary hash function for env
+unsigned long XenEnv_hash(unsigned char *str);
 
 
 
