@@ -32,3 +32,10 @@ void XenObject_put(XenObject* xo1, XenObject* xo2)
     xo2->next = xo1;
     xo1->prev = xo2;
 }
+
+void XenObject_append(XenObject* xo1, XenObject* xo2)
+{
+    XenObject_ADV_BACK(xo1);
+    xo1->next = xo2;
+    xo2->prev = xo1;
+}

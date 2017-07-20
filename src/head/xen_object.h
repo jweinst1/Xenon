@@ -30,6 +30,8 @@ typedef struct XenObject XenObject;
 
 #define XenObject_SET_P_NULL(xo) xo->prev = NULL
 
+#define XenObject_IS_TYPE(xo, ty), xo->type == ty
+
 #define XenObject_GET_TYPE(xo) xo->type
 
 #define XenObject_SET_TYPE(xo, t) xo->type = t
@@ -100,13 +102,7 @@ void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
 int XenObject_length(XenObject* xo);
 
 
-static inline void 
-XenObject_append(XenObject* xo1, XenObject* xo2)
-{
-    XenObject_ADV_BACK(xo1);
-    xo1->next = xo2;
-    xo2->prev = xo1;
-}
+void XenObject_append(XenObject* xo1, XenObject* xo2);
 
 void XenObject_put(XenObject* xo1, XenObject* xo2);
 
