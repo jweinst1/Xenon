@@ -49,6 +49,16 @@ void XenObject_append(XenObject* xo1, XenObject* xo2)
     xo2->prev = xo1;
 }
 
+//checks if same instance in stream
+int XenObject_contains(XenObject* xo, XenObject* xoitem)
+{
+    while(xo->next != NULL)
+    {
+        if(xoitem == xo) return 1;
+    }
+    return 0;
+}
+
 void XenObject_del(XenObject* xo)
 {
     switch(xo->type) 

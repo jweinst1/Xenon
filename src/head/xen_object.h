@@ -140,6 +140,8 @@ void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
 
 int XenObject_length(XenObject* xo);
 
+int XenObject_contains(XenObject* xo, XenObject* xoitem);
+
 void XenObject_del(XenObject* xo);
 
 #ifdef __cplusplus
