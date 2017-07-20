@@ -64,6 +64,12 @@ typedef struct XenObject XenObject;
 
 #define XenObject_IS_END(xo) xo->next == NULL || xo->prev == NULL
 
+#define XenObject_IS_SING(xo) xo->next == NULL && xo->prev == NULL
+
+#define XenObject_IS_FRONT(xo) xo->prev == NULL
+
+#define XenObject_IS_BACK(xo) xo->next == NULL
+
 //advances pointer to back of stream
 #define XenObject_ADV_BACK(xo) while(xo->next != NULL) xo = xo->next
 
@@ -141,6 +147,8 @@ void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
 int XenObject_length(XenObject* xo);
 
 int XenObject_contains(XenObject* xo, XenObject* xoitem);
+
+XenObject* XenObject_pop(XenObject* xo);
 
 void XenObject_del(XenObject* xo);
 

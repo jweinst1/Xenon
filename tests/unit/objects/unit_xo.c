@@ -100,6 +100,16 @@ void xo_test_8_appendauto()
     free(one);
 }
 
+void xo_test_9_pop()
+{
+    XenObject* one = malloc(sizeof(XenObject));
+    XenObject* two = one;
+    int i;
+    for(i=0;i<3;i++) two = XenObject_append_auto(two, XenObject_new());
+    TEST_IS_EQUAL_S(one, XenObject_pop(two), "9 pop");
+    free(one);
+}
+
 
 
 int main(){
@@ -111,5 +121,6 @@ int main(){
     xo_test_6_append();
     xo_test_7_getback();
     xo_test_8_appendauto();
+    xo_test_9_pop();
     return 0;
 }

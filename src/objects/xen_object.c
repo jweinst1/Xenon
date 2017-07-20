@@ -55,8 +55,23 @@ int XenObject_contains(XenObject* xo, XenObject* xoitem)
     while(xo->next != NULL)
     {
         if(xoitem == xo) return 1;
+        xo = xo->next;
     }
     return 0;
+}
+
+//removes and returns front most object
+XenObject* XenObject_pop(XenObject* xo)
+{
+    if(XenObject_IS_SING(xo)) return xo;
+    else
+    {
+        if(!(XenObject_IS_FRONT(xo))) XenObject_ADV_FRONT(xo);
+        xo->next->prev = NULL;
+        XenObject* popped = xo;
+        popped->next = NULL;
+        return popped;
+    }
 }
 
 void XenObject_del(XenObject* xo)
