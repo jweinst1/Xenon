@@ -10,8 +10,7 @@ extern "C" {
 typedef enum
 {
     XenType_Bool,
-    XenType_Char,
-    XenType_Reaction
+    XenType_Char
 } XenType;
 
 #define XenType_TO_INT(xtyp) (int)xtyp

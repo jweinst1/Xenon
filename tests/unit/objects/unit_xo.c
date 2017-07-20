@@ -90,6 +90,16 @@ void xo_test_7_getback()
     TEST_IS_TRUE_S(XenObject_SAME_PNT(other, three), "7 getback");
 }
 
+void xo_test_8_appendauto()
+{
+    XenObject* one = malloc(sizeof(XenObject));
+    XenObject* two = one;
+    int i;
+    for(i=0;i<3;i++) two = XenObject_append_auto(two, XenObject_new());
+    TEST_IS_EQUAL_S(two, XenObject_get_back(one), "8 getback");
+    free(one);
+}
+
 
 
 int main(){
@@ -100,5 +110,6 @@ int main(){
     xo_test_5_length();
     xo_test_6_append();
     xo_test_7_getback();
+    xo_test_8_appendauto();
     return 0;
 }

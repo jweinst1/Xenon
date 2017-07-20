@@ -97,14 +97,30 @@ typedef struct XenObject XenObject;
 
 //functions
 
-void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
-
-int XenObject_length(XenObject* xo);
-
+//gets new xo with no type
+XenObject* XenObject_new();
 
 void XenObject_append(XenObject* xo1, XenObject* xo2);
 
 void XenObject_put(XenObject* xo1, XenObject* xo2);
+
+//assumes xo1 is at back and appends, return xo2
+static inline XenObject*
+XenObject_append_auto(XenObject* xo1, XenObject* xo2)
+{
+    xo1->next = xo2;
+    xo2->prev = xo1;
+    return xo2;
+}
+
+//used for successive puts
+static inline XenObject*
+XenObject_put_auto(XenObject* xo1, XenObject* xo2)
+{
+    xo1->prev = xo2;
+    xo2->next = xo1;
+    return xo2;
+}
 
 static inline XenObject*
 XenObject_get_back(XenObject* xo)
@@ -119,6 +135,12 @@ XenObject_get_front(XenObject* xo)
     XenObject_ADV_FRONT(xo);
     return xo;
 }
+
+void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
+
+int XenObject_length(XenObject* xo);
+
+void XenObject_del(XenObject* xo);
 
 #ifdef __cplusplus
 }

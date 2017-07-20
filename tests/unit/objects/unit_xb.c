@@ -22,11 +22,20 @@ void xb_test_3_or()
     TEST_IS_TRUE_S(XenBool_OR(xbp1, xbp2), "test 3 or");
 }
 
+void xb_test_4_free()
+{
+    XenBool* xb1 = XenBool_new(1);
+    XenObject* xo1 = (XenObject*)xb1;
+    free(xo1);
+    TEST_IS_TRUE_S(1, "test 4 free");
+}
+
 
 int main()
 {
     xb_test_1_new();
     xb_test_2_and();
     xb_test_3_or();
+    xb_test_4_free();
     return 0;
 }
