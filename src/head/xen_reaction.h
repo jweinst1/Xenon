@@ -25,7 +25,7 @@ struct XenReaction
 
 typedef struct XenReaction XenReaction;
 
-#define XenReaction_MARK_TYPE(xrx) xrx->type = 3
+#define XenReaction_MARK_TYPE(xrx) xrx->type = XenType_Reaction
 
 #define XenReaction_GET_ARGC(xrx) xrx->arg_count
 
@@ -34,6 +34,12 @@ typedef struct XenReaction XenReaction;
 #define XenReaction_GET_ARG(xrx, ind) xrx->args[ind]
 
 #define XenReaction_SET_INST(xrx, ins) xrx->instruction = ins
+
+#define XenReaction_SET_PATH(xrx, xrp) xrx->path = xrp
+
+XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenReaction* path);
+
+void XenReaction_del(XenReaction* xrx);
 
 #ifdef __cplusplus
 }
