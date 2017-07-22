@@ -25,6 +25,14 @@ typedef struct
 
 #define XenInt_DEC_PRE(xi) --(xi->value)
 
+#define XenInt_ADD_OBJ(xi1, xi2) xi1->value += xi2->value
+
+#define XenInt_ADD_INT(xi, i) xi->value += i
+
+#define XenInt_SUB_OBJ(xi1, xi2) xi1->value -= xi2->value
+
+#define XenInt_SUB_INT(xi, i) xi->value -= i
+
 #ifdef __cplusplus
 }
 #endif
