@@ -80,10 +80,13 @@ void XenObject_del(XenObject* xo)
     {
         case XenType_Bool:
             free((XenBool*)xo);
+            break;
         case XenType_Char:
             free((XenChar*)xo);
+            break;
         case XenType_Int:
             free((XenInt*)xo);
+            break;
         default: free(xo);
     }
 }

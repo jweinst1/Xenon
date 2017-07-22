@@ -19,3 +19,19 @@ void XenReaction_del(XenReaction* xrx)
     while(arg_count--) XenObject_del((xrx->args + arg_count));
     free(xrx);
 }
+
+//main function that runs reactions against streams
+void XenReaction_react(XenReaction* xrx, XenObject* xo)
+{
+    while(xrx != NULL)
+    {
+        switch(xrx->ins)
+        {
+            case XenInst_Add:
+                break;
+            case XenInst_Sub:
+                break;
+        }
+        xrx = xrx->path;
+    }
+}

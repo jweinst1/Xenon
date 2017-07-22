@@ -41,6 +41,8 @@ XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenRea
 
 void XenReaction_del(XenReaction* xrx);
 
+void XenReaction_react(XenReaction* xrx, XenObject* xo);
+
 #ifdef __cplusplus
 }
 #endif
