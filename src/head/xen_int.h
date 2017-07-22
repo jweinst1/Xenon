@@ -15,6 +15,8 @@ typedef struct
 
 #define XenInt_SET_VAL(xi, v) xi->value = v
 
+#define XenInt_MARK_TYPE(xi) xi->type = XenType_Int
+
 #define XenInt_ABS(xi) abs(xi->value)
 
 #define XenInt_INC_POST(xi) xi->value++
@@ -32,6 +34,8 @@ typedef struct
 #define XenInt_SUB_OBJ(xi1, xi2) xi1->value -= xi2->value
 
 #define XenInt_SUB_INT(xi, i) xi->value -= i
+
+XenInt* XenInt_new(long value);
 
 #ifdef __cplusplus
 }
