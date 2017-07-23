@@ -23,15 +23,18 @@ void XenReaction_del(XenReaction* xrx)
 //main function that runs reactions against streams
 void XenReaction_react(XenReaction* xrx, XenObject* xo)
 {
-    while(xrx != NULL)
+    XenReaction* currRx;
+    while(xo != NULL)
     {
-        switch(xrx->ins)
+        currRx = xrx;
+        while(currRx != NULL)
         {
-            case XenInst_Add:
-                break;
-            case XenInst_Sub:
-                break;
+            switch(currRx->instruction)
+            {
+                
+            }
+            currRx = currRx->path;
         }
-        xrx = xrx->path;
+        xo = xo->next;
     }
 }
