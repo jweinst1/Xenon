@@ -12,7 +12,9 @@ typedef enum
     XenInst_Add,
     XenInst_Sub,
     XenInst_Mul,
-    XenInst_Div
+    XenInst_Div,
+    XenInst_Rem,
+    XenInst_Abs
 } XenInst;
 
 #define XenInst_TO_INT(xins) (int)xins
