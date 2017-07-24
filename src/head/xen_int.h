@@ -42,6 +42,8 @@ typedef struct
 
 XenInt* XenInt_new(long value);
 
+XenObject* XenInt_new_obj(long value);
+
 #ifdef __cplusplus
 }
 #endif

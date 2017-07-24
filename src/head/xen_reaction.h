@@ -31,7 +31,7 @@ typedef struct XenReaction XenReaction;
 
 #define XenReaction_CONNECT(xrx1, xrx2) xrx1->path = xrx2
 
-#define XenReaction_GET_ARG(xrx, ind) xrx->args[ind]
+#define XenReaction_GET_ARG(xrx, ind) (xrx->args + ind)
 
 #define XenReaction_SET_INST(xrx, ins) xrx->instruction = ins
 
@@ -42,6 +42,8 @@ XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenRea
 void XenReaction_del(XenReaction* xrx);
 
 void XenReaction_react(XenReaction* xrx, XenObject* xo);
+
+// void XenReaction_run_inst(XenInst ins, XenObject* xo1, XenObject* xo2);
 
 #ifdef __cplusplus
 }

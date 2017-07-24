@@ -125,7 +125,7 @@ XenObject_put_auto(XenObject* xo1, XenObject* xo2)
 {
     xo1->prev = xo2;
     xo2->next = xo1;
-    return xo2;
+    return xo1;
 }
 
 static inline XenObject*
