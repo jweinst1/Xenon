@@ -17,6 +17,11 @@ typedef struct
 
 #define XenInt_MARK_TYPE(xi) xi->type = XenType_Int
 
+//macro for getting int and casting from xenobject
+#define XenInt_GET_INT(xo) ((XenInt*)xo)->value
+
+#define XenInt_IS_INT(xo) xo->type == XenType_Int
+
 #define XenInt_ABS(xi) abs(xi->value)
 
 #define XenInt_INC_POST(xi) xi->value++

@@ -31,7 +31,14 @@ void XenReaction_react(XenReaction* xrx, XenObject* xo)
         {
             switch(currRx->instruction)
             {
-                
+                case XenInst_Add:
+                    XenInt_GET_INT(xo) += XenInt_GET_INT(XenReaction_GET_ARG(xrx, 0));
+                    break;
+                case XenInst_Sub:
+                    XenInt_GET_INT(xo) -= XenInt_GET_INT(XenReaction_GET_ARG(xrx, 0));
+                    break;
+                case XenInst_Mul:
+                    break;
             }
             currRx = currRx->path;
         }
