@@ -1,6 +1,7 @@
 #ifndef XENON_MAIN_HEADER_H
 #define XENON_MAIN_HEADER_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 

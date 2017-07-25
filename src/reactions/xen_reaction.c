@@ -49,6 +49,12 @@ void XenReaction_react(XenReaction* xrx, XenObject* xo)
                 case XenInst_Abs:
                     XenInt_GET_INT(xo) = abs(XenInt_GET_INT(xo));
                     break;
+                case XenInst_Inc:
+                    XenInt_GET_INT(xo)++;
+                    break;
+                case XenInst_Dec:
+                    XenInt_GET_INT(xo)--;
+                    break;
             }
             currRx = currRx->path;
         }
