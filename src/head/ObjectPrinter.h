@@ -17,6 +17,13 @@ extern "C" {
 
 #define ObjectPrinter_PRINT_BOOL(str) str ? printf("true") : printf("false")
 
+//prints single reaction node
+void ObjectPrinter_print_srx(XenReaction* xrx);
+
+void ObjectPrinter_print_rx(XenObject* xo);
+
+void ObjectPrinter_print_s(XenObject* xo);
+
 void ObjectPrinter_print(XenObject* xo);
 
 #ifdef __cplusplus
