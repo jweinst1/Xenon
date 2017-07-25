@@ -41,6 +41,9 @@ typedef struct
 
 #define XenBool_TO_CINT(xb) (int)xb->state
 
+//for getting state and casting from xenobject
+#define XenBool_GET_BOOL(xo) ((XenBool*)xo)->state
+
 //functions
 
 XenBool* XenBool_new(unsigned char s);

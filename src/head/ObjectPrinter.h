@@ -15,6 +15,8 @@ extern "C" {
 
 #define ObjectPrinter_PRINT_CAT(str1, str2) printf("%s%s", str1, str2)
 
+#define ObjectPrinter_PRINT_BOOL(str) str ? printf("true") : printf("false")
+
 void ObjectPrinter_print(XenObject* xo);
 
 #ifdef __cplusplus

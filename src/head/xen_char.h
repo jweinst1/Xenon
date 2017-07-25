@@ -18,7 +18,7 @@ typedef struct {
 
 #define XenChar_MARK_TYPE(xc) xc->type = XenType_Char
 
-#define XenChar_GET_CHAR(xc) xc->value
+#define XenChar_GET_CHAR(xo) ((XenChar*)xo)->value
 
 #define XenChar_GET_UCHAR(xc) (unsigned char)(xc->value)
 
