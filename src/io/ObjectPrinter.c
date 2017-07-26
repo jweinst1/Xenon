@@ -55,6 +55,7 @@ void ObjectPrinter_print_s(XenObject* xo)
             ObjectPrinter_PRINT_BOOL(XenBool_GET_BOOL(xo));
             break;
         case XenType_Reaction:
+            ObjectPrinter_print_rx(xo);
             break;
     }   
 }
