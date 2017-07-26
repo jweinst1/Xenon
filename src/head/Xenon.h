@@ -13,6 +13,7 @@
 #include "xen_bool.h"
 #include "xen_char.h"
 #include "xen_int.h"
+#include "xen_string.h"
 
 #include "xen_inst.h"
 #include "xen_reaction.h"

@@ -14,6 +14,10 @@ typdef struct {
     long capacity;
 } XenString;
 
+#define XenString_GET_STR(xo) ((XenString*)xo)->str
+
+XenString* XenString_new(long len, long capacity);
+
 #ifdef __cplusplus
 }
 #endif
