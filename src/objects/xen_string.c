@@ -21,3 +21,12 @@ XenString* XenString_new(const char* str)
     xs->str = malloc(xs->capacity);
     return xs;
 }
+
+//appends one string object to another
+void XenString_append(XenString* xs1, XenString* xs2)
+{
+    long newsize = xs1->len + xs2->len;
+    //this will always add more than enough space than needed
+    if(newsize > xs1->capacity) XenString_expand(xs1, newsize);
+    strcat(xs1->str, xs2->str);
+}

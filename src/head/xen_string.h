@@ -31,6 +31,8 @@ XenString_expand(XenString* xs, const long size)
     xs->str = realloc(xs->str, xs->capacity);
 }
 
+void XenString_append(XenString* xs1, XenString* xs2);
+
 #ifdef __cplusplus
 }
 #endif
