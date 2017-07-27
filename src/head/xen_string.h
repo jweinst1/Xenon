@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-typdef struct {
+typedef struct {
     XenObject_HANDLE
     char* str;
     long len;
@@ -16,7 +16,20 @@ typdef struct {
 
 #define XenString_GET_STR(xo) ((XenString*)xo)->str
 
-XenString* XenString_new(long len, long capacity);
+#define XenString_GET_LEN(xs) xs->len
+
+#define XenString_IS_FULL(xs) xs->len == xs->capacity
+
+XenString* XenString_new_empty(long capacity);
+
+XenString* XenString_new(const char* str);
+
+static inline void 
+XenString_expand(XenString* xs, const long size)
+{
+    xs->capacity += size;
+    xs->str = realloc(xs->str, xs->capacity);
+}
 
 #ifdef __cplusplus
 }
