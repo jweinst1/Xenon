@@ -20,6 +20,12 @@ typedef struct {
 
 #define XenString_IS_FULL(xs) xs->len == xs->capacity
 
+//macro for append function, works the same
+#define XenString_APPEND(xs1, xs2) do { \
+    if((xs1->len + xs2->len) > xs1->capacity) XenString_expand(xs1, (xs1->len + xs2->len)); \
+    strcat(xs1->str, xs2->str); \
+    xs1->len = newsize; }while(0)
+
 XenString* XenString_new_empty(long capacity);
 
 XenString* XenString_new(const char* str);
@@ -32,6 +38,7 @@ XenString_expand(XenString* xs, const long size)
 }
 
 void XenString_append(XenString* xs1, XenString* xs2);
+
 
 #ifdef __cplusplus
 }
