@@ -73,20 +73,3 @@ XenObject* XenObject_pop(XenObject* xo)
         return popped;
     }
 }
-
-void XenObject_del(XenObject* xo)
-{
-    switch(xo->type) 
-    {
-        case XenType_Bool:
-            free((XenBool*)xo);
-            break;
-        case XenType_Char:
-            free((XenChar*)xo);
-            break;
-        case XenType_Int:
-            free((XenInt*)xo);
-            break;
-        default: free(xo);
-    }
-}
