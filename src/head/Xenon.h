@@ -16,10 +16,12 @@
 #include "xen_int.h"
 #include "xen_string.h"
 
+
 #include "xen_inst.h"
 #include "xen_reaction.h"
 
 #include "xo_construction.h"
+#include "xengc.h"
 #include "xenenv.h"
 
 

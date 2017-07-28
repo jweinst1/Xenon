@@ -7,6 +7,10 @@
 extern "C" {
 #endif
 
+void XenGc_del_reaction(XenReaction* xrx);
+
+void XenGc_del_string(XenString* xs);
+
 void XenGc_del_one(XenObject* xo);
 
 void XenGc_del(XenObject* xo);
