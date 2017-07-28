@@ -25,8 +25,7 @@ void xb_test_3_or()
 void xb_test_4_free()
 {
     XenBool* xb1 = XenBool_new(1);
-    XenObject* xo1 = (XenObject*)xb1;
-    free(xo1);
+    free(xb1);
     TEST_IS_TRUE_S(1, "test 4 free");
 }
 
