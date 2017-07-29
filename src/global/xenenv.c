@@ -67,3 +67,20 @@ XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo)
     xe->icount++;
     return xo;
 }
+
+//finds a variable in the table
+XenObject* XenEnv_find(XenEnv* xe, char* key)
+{
+    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
+    while(hashslot != NULL)
+    {
+        if(strcmp(hashslot->key, key) == 0)
+        {
+            return hashslot->obj;
+        }
+        else
+        {
+            hashslot = hashslot->link;
+        }
+    }
+}

@@ -58,6 +58,8 @@ unsigned long XenEnv_hash(char *str);
 
 XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo);
 
+XenObject* XenEnv_find(XenEnv* xe, char* key);
+
 
 
 #ifdef __cplusplus
