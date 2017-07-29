@@ -19,6 +19,14 @@ typedef struct {
 
 #define XenNone_IS_NONE(xn) xn->type == XenType_None
 
+static inline XenNone*
+XenNone_new()
+{
+    XenNone* xn = malloc(sizeof(XenNone));
+    XenNone_MARK_TYPE(xn);
+    return xn;
+}
+
 #ifdef __cplusplus
 }
 #endif

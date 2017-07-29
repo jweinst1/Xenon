@@ -54,6 +54,9 @@ void ObjectPrinter_print_s(XenObject* xo)
         case XenType_Bool:
             ObjectPrinter_PRINT_BOOL(XenBool_GET_BOOL(xo));
             break;
+        case XenType_None:
+            puts("None");
+            break;
         case XenType_String:
             puts(XenString_GET_STR(xo));
             break;

@@ -83,4 +83,5 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
             hashslot = hashslot->link;
         }
     }
+    //need error handling
 }

@@ -11,6 +11,7 @@
 #include "xen_type.h"
 #include "xen_object.h"
 
+#include "xen_none.h"
 #include "xen_bool.h"
 #include "xen_char.h"
 #include "xen_int.h"

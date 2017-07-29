@@ -9,6 +9,7 @@ extern "C" {
 
 typedef enum
 {
+    XenType_None,
     XenType_Bool,
     XenType_Char,
     XenType_Reaction,
