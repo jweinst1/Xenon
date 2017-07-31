@@ -39,8 +39,6 @@ typedef struct XenReaction XenReaction;
 
 XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenReaction* path);
 
-void XenReaction_del(XenReaction* xrx);
-
 void XenReaction_react(XenReaction* xrx, XenObject* xo);
 
 // void XenReaction_run_inst(XenInst ins, XenObject* xo1, XenObject* xo2);

@@ -60,6 +60,8 @@ XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo);
 
 XenObject* XenEnv_find(XenEnv* xe, char* key);
 
+void XenEnv_del(XenEnv* xe, char* key);
+
 
 
 #ifdef __cplusplus

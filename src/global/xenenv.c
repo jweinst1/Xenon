@@ -34,7 +34,7 @@ void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo)
 void XenEnvBox_del(XenEnvBox* xeb)
 {
     if(xeb->key != NULL) free(xeb->key);
-    //todo:-> need generic object delete
+    if(xeb->obj != NULL) XenGc_del(xeb->obj);
     if(xeb->link != NULL) XenEnvBox_del(xeb->link);
 }
 
@@ -83,5 +83,19 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
             hashslot = hashslot->link;
         }
     }
-    //need error handling
+    //todo: decide if error handling
+    return XenNone_new();
+}
+
+//deletes a hashslots data
+void XenEnv_del(XenEnv* xe, char* key)
+{
+    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
+    if(hashslot != NULL)
+    {
+        if(strcmp(hashslot->key, key) == 0)
+        {
+            XenEnvBox_del(hashslot);
+        }
+    }
 }

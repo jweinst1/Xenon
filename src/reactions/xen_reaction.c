@@ -13,12 +13,6 @@ XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenRea
     return rx;
 }
 
-void XenReaction_del(XenReaction* xrx)
-{
-    if(xrx->path != NULL) XenReaction_del(xrx->path);
-    while(xrx->arg_count--) XenObject_del(XenReaction_GET_ARG(xrx, xrx->arg_count));
-    free(xrx);
-}
 
 //main function that runs reactions against streams
 void XenReaction_react(XenReaction* xrx, XenObject* xo)
