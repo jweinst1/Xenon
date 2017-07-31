@@ -5,7 +5,8 @@
 XenEnvBox* XenEnvBox_new(char* key, XenObject* xo)
 {
     XenEnvBox* xeb = malloc(sizeof(XenEnvBox));
-    xeb->key = key;
+    xeb->key = malloc(strlen(key));
+    strcpy(xeb->key, key);
     xeb->obj = xo;
     xeb->link = NULL; 
     return xeb;
@@ -84,7 +85,7 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
         }
     }
     //todo: decide if error handling
-    return XenNone_new();
+    return (XenObject*)XenNone_new();
 }
 
 //deletes a hashslots data

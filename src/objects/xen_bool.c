@@ -4,7 +4,7 @@ XenBool* XenBool_new(unsigned char s)
 {
     XenBool* newbool = malloc(sizeof(XenBool));
     newbool->next = NULL;
-    newbool->next = NULL;
+    newbool->prev = NULL;
     XenBool_MARK_TYPE(newbool);
     newbool->state = s;
     return newbool;

@@ -4,7 +4,7 @@ XenChar* XenChar_new(char ch)
 {
     XenChar* newchar = malloc(sizeof(XenChar));
     newchar->next = NULL;
-    newchar->next = NULL;
+    newchar->prev = NULL;
     XenChar_MARK_TYPE(newchar);
     newchar->value = ch;
     return newchar;
