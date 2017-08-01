@@ -30,6 +30,8 @@ typedef struct XenEnvBox XenEnvBox;
 
 #define XenEnvBox_FIND_EMPTY(xeb) while(xeb->link != NULL) xeb = xeb->link
 
+#define XenEnvBox_KEY_CMP(key, hskey) hskey != NULL && (strcmp(key, hskey) == 0)
+
 XenEnvBox* XenEnvBox_new(char* key, XenObject* xo);
 
 void XenEnvBox_set_null(XenEnvBox* xeb);
@@ -61,6 +63,8 @@ XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo);
 XenObject* XenEnv_find(XenEnv* xe, char* key);
 
 void XenEnv_del(XenEnv* xe, char* key);
+
+void XenEnv_expand(XenEnv* xe);
 
 
 

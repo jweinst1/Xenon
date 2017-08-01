@@ -31,12 +31,14 @@ void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo)
     }
 }
 
-//warning, does not delete object pointer, fix needed
+
+//deletes entire xenenvbox
 void XenEnvBox_del(XenEnvBox* xeb)
 {
     if(xeb->key != NULL) free(xeb->key);
     if(xeb->obj != NULL) XenGc_del(xeb->obj);
     if(xeb->link != NULL) XenEnvBox_del(xeb->link);
+    free(xeb);
 }
 
 XenEnv* XenEnv_new()
@@ -75,7 +77,7 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
     XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
     while(hashslot != NULL)
     {
-        if(strcmp(hashslot->key, key) == 0)
+        if(XenEnvBox_KEY_CMP(key, hashslot->key))
         {
             return hashslot->obj;
         }
@@ -88,15 +90,32 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
     return (XenObject*)XenNone_new();
 }
 
-//deletes a hashslots data
+//deletes a hashslots data and key
 void XenEnv_del(XenEnv* xe, char* key)
 {
     XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
-    if(hashslot != NULL)
+    if(XenEnvBox_KEY_CMP(key, hashslot->key))
     {
-        if(strcmp(hashslot->key, key) == 0)
-        {
-            XenEnvBox_del(hashslot);
-        }
+        free(hashslot->key);
+        hashslot->key = NULL;
+        XenGc_del(hashslot->obj);
+        hashslot->obj = NULL;
     }
+    //works off the link incase of downstream chain items
+    else while(hashslot->link != NULL)
+    {
+        if(XenEnvBox_KEY_CMP(key, hashslot->link->key))
+        {
+            if(hashslot->link->key != NULL) free(hashslot->link->key);
+            if(hashslot->link->obj != NULL) XenGc_del(hashslot->link->obj);
+            free(hashslot->link);
+            hashslot->link = hashslot->link->link;
+        }
+        hashslot = hashslot->link;
+    }
+}
+
+void XenEnv_expand(XenEnv* xe)
+{
+    
 }
