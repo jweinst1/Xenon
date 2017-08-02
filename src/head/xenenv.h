@@ -40,7 +40,7 @@ void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo);
 
 void XenEnvBox_del(XenEnvBox* xeb);
 
-static int XenEnv_SIZE =  5000;
+#define XenEnv_SIZE 5000
 
 #define XenEnv_LOAD_FACTOR(xenv) xenv->ocount / 5000
 
@@ -49,6 +49,7 @@ static int XenEnv_SIZE =  5000;
 typedef struct
 {
     XenEnvBox* table;
+    int size; //current size
     int icount; //total items
     int ocount; //buckets occupied
 } XenEnv;

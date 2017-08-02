@@ -18,24 +18,23 @@ void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo)
     if(xeb->key == NULL)
     {
         xeb->obj = xo;
-        xeb->key = key;
+        xeb->key = malloc(strlen(key));
+        strcpy(xeb->key, key);
     }
-    else while(xeb->link != NULL)
+    else 
     {
-        //checks if name is reassigned, and changes XenObject pointer
-        if(XenEnvBox_KEY_CMP(key, xeb->key))
+        while(xeb->link != NULL)
         {
-            xeb->obj = xo;
-            return;
+            //checks if name is reassigned, and changes XenObject pointer
+            if(XenEnvBox_KEY_CMP(key, xeb->key))
+            {
+                xeb->obj = xo;
+                return;
+                
+            }
+            xeb = xeb->link;
         }
-    }
-    else if(xeb->link == NULL)
-    {
-        xeb->link = XenEnvBox_new(key, xo);
-    }
-    else
-    {
-        while(xeb->link != NULL) xeb = xeb->link;
+        //creates new chain link if space occupied
         xeb->link = XenEnvBox_new(key, xo);
     }
 }
@@ -55,6 +54,7 @@ XenEnv* XenEnv_new()
     XenEnv* env = malloc(sizeof(XenEnv));
     env->ocount = 0;
     env->icount = 0;
+    env->size = XenEnv_SIZE;
     env->table = malloc(sizeof(XenEnvBox) * XenEnv_SIZE);
     return env;
 }
@@ -73,7 +73,7 @@ XenEnv_hash(char *str)
 
 XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo)
 {
-    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
+    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % xe->size);
     XenEnvBox_add_obj(hashslot, key, xo);
     if(XenEnvBox_IS_NULL_O(hashslot)) xe->ocount++;
     xe->icount++;
@@ -83,7 +83,7 @@ XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo)
 //finds a variable in the table
 XenObject* XenEnv_find(XenEnv* xe, char* key)
 {
-    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
+    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % xe->size);
     while(hashslot != NULL)
     {
         if(XenEnvBox_KEY_CMP(key, hashslot->key))
@@ -102,7 +102,7 @@ XenObject* XenEnv_find(XenEnv* xe, char* key)
 //deletes a hashslots data and key
 void XenEnv_del(XenEnv* xe, char* key)
 {
-    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % XenEnv_SIZE);
+    XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % xe->size);
     if(XenEnvBox_KEY_CMP(key, hashslot->key))
     {
         free(hashslot->key);
@@ -130,6 +130,6 @@ void XenEnv_del(XenEnv* xe, char* key)
 //expands the variable table size
 void XenEnv_expand(XenEnv* xe)
 {
-    XenEnv_SIZE += XenEnv_SIZE;
-    xe->table = realloc(xe->table, sizeof(XenEnvBox) * XenEnv_SIZE);
+    xe->size += xe->size;
+    xe->table = realloc(xe->table, sizeof(XenEnvBox) * xe->size);
 }
