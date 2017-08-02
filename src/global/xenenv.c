@@ -15,10 +15,19 @@ XenEnvBox* XenEnvBox_new(char* key, XenObject* xo)
 //once a hash slot is found, either chains or inserts the pair into this box
 void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo)
 {
-    if(xeb->obj == NULL)
+    if(xeb->key == NULL)
     {
         xeb->obj = xo;
         xeb->key = key;
+    }
+    else while(xeb->link != NULL)
+    {
+        //checks if name is reassigned, and changes XenObject pointer
+        if(XenEnvBox_KEY_CMP(key, xeb->key))
+        {
+            xeb->obj = xo;
+            return;
+        }
     }
     else if(xeb->link == NULL)
     {
@@ -100,6 +109,8 @@ void XenEnv_del(XenEnv* xe, char* key)
         hashslot->key = NULL;
         XenGc_del(hashslot->obj);
         hashslot->obj = NULL;
+        xe->ocount--;
+        xe->icount--;
     }
     //works off the link incase of downstream chain items
     else while(hashslot->link != NULL)
@@ -109,13 +120,16 @@ void XenEnv_del(XenEnv* xe, char* key)
             if(hashslot->link->key != NULL) free(hashslot->link->key);
             if(hashslot->link->obj != NULL) XenGc_del(hashslot->link->obj);
             free(hashslot->link);
+            xe->icount--;
             hashslot->link = hashslot->link->link;
         }
         hashslot = hashslot->link;
     }
 }
 
+//expands the variable table size
 void XenEnv_expand(XenEnv* xe)
 {
-    
+    XenEnv_SIZE += XenEnv_SIZE;
+    xe->table = realloc(xe->table, sizeof(XenEnvBox) * XenEnv_SIZE);
 }
