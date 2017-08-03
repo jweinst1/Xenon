@@ -20,7 +20,7 @@
 
 #include "xen_inst.h"
 #include "xen_reaction.h"
-
+#include "xencomp.h"
 #include "xengc.h"
 #include "xenenv.h"
 
