@@ -49,6 +49,10 @@ void XenReaction_react(XenReaction* xrx, XenObject* xo)
                 case XenInst_Dec:
                     XenInt_GET_INT(xo)--;
                     break;
+                case XenInst_End: //stops the reaction
+                    currRx = NULL;
+                    xo = NULL;
+                    break;
             }
             currRx = currRx->path;
         }

@@ -21,6 +21,8 @@ void ObjectPrinter_print_srx(XenReaction* xrx)
             break;
         case XenInst_Dec:
             break;
+        case XenInst_End:
+            break;
     }    
 }
 

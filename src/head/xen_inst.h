@@ -16,7 +16,8 @@ typedef enum
     XenInst_Rem,
     XenInst_Abs,
     XenInst_Inc,
-    XenInst_Dec
+    XenInst_Dec,
+    XenInst_End
 } XenInst;
 
 #define XenInst_TO_INT(xins) (int)xins
