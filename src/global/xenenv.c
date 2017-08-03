@@ -23,16 +23,20 @@ void XenEnvBox_add_obj(XenEnvBox* xeb, char* key, XenObject* xo)
     }
     else 
     {
+        if(XenEnvBox_KEY_CMP(key, xeb->key))
+        {
+            xeb->obj = xo;
+            return;
+        }
         while(xeb->link != NULL)
         {
+            xeb = xeb->link;
             //checks if name is reassigned, and changes XenObject pointer
             if(XenEnvBox_KEY_CMP(key, xeb->key))
             {
                 xeb->obj = xo;
                 return;
-                
             }
-            xeb = xeb->link;
         }
         //creates new chain link if space occupied
         xeb->link = XenEnvBox_new(key, xo);
@@ -74,8 +78,8 @@ XenEnv_hash(char *str)
 XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo)
 {
     XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % xe->size);
-    XenEnvBox_add_obj(hashslot, key, xo);
     if(XenEnvBox_IS_NULL_O(hashslot)) xe->ocount++;
+    XenEnvBox_add_obj(hashslot, key, xo);
     xe->icount++;
     return xo;
 }
