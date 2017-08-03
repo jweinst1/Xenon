@@ -37,6 +37,8 @@ typedef struct XenReaction XenReaction;
 
 #define XenReaction_SET_PATH(xrx, xrp) xrx->path = xrp
 
+int XenReaction_len(XenReaction* xrx);
+
 XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenReaction* path);
 
 void XenReaction_react(XenReaction* xrx, XenObject* xo);

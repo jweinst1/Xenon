@@ -1,5 +1,13 @@
 #include "Xenon.h"
 
+//gets length of reaction
+int XenReaction_len(XenReaction* xrx)
+{
+    int l = 1;
+    while(xrx->path != NULL) l++;
+    return l;
+}
+
 //reaction function file
 
 XenReaction* XenReaction_new(XenInst ins, XenObject* args, int arg_count, XenReaction* path)
