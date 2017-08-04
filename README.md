@@ -1,5 +1,7 @@
 # Xenon
 
+[Wiki Docs](https://github.com/jweinst1/Xenon/wiki)
+
 *The Reactive Programming Language*
 
 Xenon is the reactive programming language, largely based on the libraries and methods of reactive programming
@@ -27,6 +29,12 @@ numbers = [modify(x) for x in xrange(0, 10) if check(x)]
 But in Xenon you just do
 
 ```
-@ modcheck a |? > 5| a | 0 | a/2, a%2
-modcheck => [0..10]
+@ modcheck = { if > 5,
+                = a , 
+                = 0 ,
+                / 2,
+                % 2
+            }
+@ nums = [1..10]
+nums <- modcheck
 ```
