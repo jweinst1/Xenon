@@ -4,7 +4,11 @@
 int XenReaction_len(XenReaction* xrx)
 {
     int l = 1;
-    while(xrx->path != NULL) l++;
+    while(xrx->path != NULL)
+    {
+        l++;
+        xrx = xrx->path;
+    }
     return l;
 }
 

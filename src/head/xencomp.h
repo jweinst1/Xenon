@@ -15,6 +15,8 @@ extern "C" {
 
 #define XenComp_SAME_STR(xo1, xo2) strcmp(((XenString*)xo1)->str, ((XenString*)xo2)->str) == 0
 
+int XenComp_eq_rx_one(XenReaction* xrx1, XenReaction* xrx2);
+
 int XenComp_eq_rx(XenReaction* xrx1, XenReaction* xrx2);
 
 int XenComp_eq_object(XenObject* xo1, XenObject* xo2);
