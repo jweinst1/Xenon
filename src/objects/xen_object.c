@@ -75,18 +75,18 @@ XenObject* XenObject_pop(XenObject* xo)
 }
 
 //removes an object from the stream and connects it's next and previous
-void XenObject_remove(XenObject* xo)
+XenObject* XenObject_remove(XenObject* xo)
 {
     XenObject* hold = xo;
     if(xo->next != NULL && xo->prev != NULL)
     {
         xo->next->prev = xo->prev;
         xo->prev->next = xo->next;
-        XenGc_del_one(hold);
+        return hold;
     }
     else {
         if(xo->next != NULL) xo->next->prev = NULL;
         if(xo->prev != NULL) xo->prev->next = NULL;
-        XenGc_del_one(hold);
+        return hold;
     }
 }

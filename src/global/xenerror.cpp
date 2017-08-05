@@ -5,8 +5,12 @@ extern "C" {
     
 void XenError(const char* message)
 {
-    throw message;
+    try  {throw message;}
+    catch(const char* mess)
+    {
+        return;
+    }
 }
         
-
+ 
 }

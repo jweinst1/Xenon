@@ -25,4 +25,4 @@ lib/xenenv.o: src/global/xenenv.c $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/global
 
 lib/xencomp.o: src/reactions/xencomp.c $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/reactions/xencomp.c -o $@
 
-lib/xenerror.o: src/global/xenerror.cpp $(INC_DIR)/xenerror.h; $(CC) $(CFLAGS) src/global/xenerror.cpp -o $@
+lib/xenerror.o: src/global/xenerror.cpp $(INC_DIR)/xenerror.h; $(CC) $(CFLAGS) src/global/xenerror.cpp -o $@ $(CPPLINK)

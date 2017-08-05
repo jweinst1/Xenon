@@ -150,7 +150,7 @@ int XenObject_contains(XenObject* xo, XenObject* xoitem);
 
 XenObject* XenObject_pop(XenObject* xo);
 
-void XenObject_remove(XenObject* xo);
+XenObject* XenObject_remove(XenObject* xo);
 
 #ifdef __cplusplus
 }
