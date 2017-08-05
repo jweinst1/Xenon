@@ -23,6 +23,7 @@
 #include "xencomp.h"
 #include "xengc.h"
 #include "xenenv.h"
+#include "xenerror.h"
 
 
 #endif

@@ -112,6 +112,7 @@ void xo_test_9_pop()
 
 
 
+
 int main(){
     xo_test_1_settype();
     xo_test_2_sametype();
@@ -122,5 +123,6 @@ int main(){
     xo_test_7_getback();
     xo_test_8_appendauto();
     xo_test_9_pop();
+    XenError("This is an error\n");
     return 0;
 }
