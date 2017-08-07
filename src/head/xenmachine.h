@@ -5,6 +5,15 @@
 extern "C" {
 #endif
 
+//macro that determines if the static main instance is activated or not
+#define XenMachine_INIT_MAIN 1
+
+//enum that determines error status for an instance of XenMachine
+typedef enum
+{
+    XenErrStatus_On,
+    XenErrStatus_Off
+} XenErrStatus;
 
 typedef enum
 {
@@ -22,21 +31,12 @@ typedef struct
     char errstr[300];
 } XenMachine;
 
-//global instance of the xenmachine
-static XenMachine XenMachine_MAIN = {XenEnv_new(), XenState_Start, XenErrStatus_Off};
 
-//singleton instance of xenmachine
-static inline XenMachine*
-XenMachine_main()
-{
-    return &XenMachine_MAIN;
-}
 
-static inline void
-XenMachine_main_set(XenState state)
-{
-    XenMachine_MAIN.state = state;
-}
+//singleton instance/constructor of xenmachine
+XenMachine* XenMachine_Main();
+
+
 
 #ifdef __cplusplus
 }

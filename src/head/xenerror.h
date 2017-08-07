@@ -7,12 +7,6 @@ extern "C" {
 
 //file that contains implementation of the xenon error system
 
-//enum that determines error status for an instance of XenMachine
-typedef enum
-{
-    XenErrStatus_On,
-    XenErrStatus_Off
-} XenErrStatus;
 
 static inline void
 XenError_on(XenMachine* xem)
@@ -34,7 +28,7 @@ XenError_write(XenMachine* xem, char* mes)
 
 //reads error message into buffer, from XenMachine
 static inline void
-XenError_read(XenMachine* xem, char* mes)
+XenError_read(XenMachine* xem, char* buf)
 {
     strcpy(buf, xem->errstr);
 }

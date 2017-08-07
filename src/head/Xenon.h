@@ -25,6 +25,7 @@
 #include "xen_reaction.h"
 #include "xencomp.h"
 #include "xenenv.h"
+#include "xenmachine.h"
 #include "xenerror.h"
 #include "xengc.h"
 
