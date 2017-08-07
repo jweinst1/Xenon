@@ -1,5 +1,6 @@
 #include "Xenon.h"
 
+//name is capitalized for singleton constructor
 XenMachine* XenMachine_Main()
 {
     static XenMachine XenMachine_MAIN = {};
@@ -16,6 +17,12 @@ XenMachine* XenMachine_Main()
         init = 1;
         return &XenMachine_MAIN;
     }
+}
+
+//gets state of main machine
+XenState XenMachine_Main_state()
+{
+    return XenMachine_Main()->state;
 }
 
 //constructor for new, heap allocated machine instances

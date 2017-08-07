@@ -38,6 +38,8 @@ typedef struct
 //singleton instance/constructor of xenmachine
 XenMachine* XenMachine_Main();
 
+XenState XenMachine_Main_state();
+
 //constructs new instances
 XenMachine* XenMachine_new();
 
