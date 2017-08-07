@@ -7,42 +7,43 @@ extern "C" {
 
 //file that contains implementation of the xenon error system
 
-//contains the state of error status
-static int XenError_STATUS = 0;
-
-//a global variable which contains an error message
-static char XenError_MESSAGE[250];
+//enum that determines error status for an instance of XenMachine
+typedef enum
+{
+    XenErrStatus_On,
+    XenErrStatus_Off
+} XenErrStatus;
 
 static inline void
-XenError_on()
+XenError_on(XenMachine* xem)
 {
-    XenError_STATUS = 1;
+    xem->err = XenErrStatus_On;
 }
 
 static inline void
-XenError_off()
+XenError_off(XenMachine* xem)
 {
-    XenError_STATUS = 0;
+    xem->err = XenErrStatus_Off;
 }
 
 static inline void
-XenError_write(char* mes)
+XenError_write(XenMachine* xem, char* mes)
 {
-    strcpy(XenError_MESSAGE, mes);
+    strcpy(xem->errstr, mes);
 }
 
-//reads error message into buffer
+//reads error message into buffer, from XenMachine
 static inline void
-XenError_read(char* buf)
+XenError_read(XenMachine* xem, char* mes)
 {
-    strcpy(buf, XenError_MESSAGE);
+    strcpy(buf, xem->errstr);
 }
 
 //prints the current error message
 static inline void
-XenError_print()
+XenError_print(XenMachine* xem)
 {
-    puts(XenError_MESSAGE);
+    puts(xem->errstr);
 }
 
 #ifdef __cplusplus

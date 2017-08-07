@@ -77,6 +77,7 @@ XenEnv_hash(char *str)
 
 XenObject* XenEnv_insert(XenEnv* xe, char* key, XenObject* xo)
 {
+    if(xe->icount > (xe->size - 100)) XenEnv_expand(xe);
     XenEnvBox* hashslot = (xe->table) + (XenEnv_hash(key) % xe->size);
     if(XenEnvBox_IS_NULL_O(hashslot)) xe->ocount++;
     XenEnvBox_add_obj(hashslot, key, xo);
