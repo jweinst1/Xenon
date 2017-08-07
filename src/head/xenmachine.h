@@ -16,7 +16,7 @@ typedef enum
 //sturcture for instance of the Xenon Machine
 typedef struct
 {
-    //env needed
+    XenEnv* env;
     XenState state;
 } XenMachine;
 
