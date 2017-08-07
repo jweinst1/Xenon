@@ -40,6 +40,13 @@ XenError_print(XenMachine* xem)
     puts(xem->errstr);
 }
 
+//sets the error message to nothing
+static inline void
+XenError_reset(XenMachine* xem)
+{
+    xem->errstr[0] = '\0';
+}
+
 #ifdef __cplusplus
 }
 #endif

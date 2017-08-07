@@ -8,6 +8,8 @@ extern "C" {
 //macro that determines if the static main instance is activated or not
 #define XenMachine_INIT_MAIN 1
 
+#define XenMachine_GET_ENV(xem) xem->env
+
 //enum that determines error status for an instance of XenMachine
 typedef enum
 {
@@ -36,6 +38,8 @@ typedef struct
 //singleton instance/constructor of xenmachine
 XenMachine* XenMachine_Main();
 
+//constructs new instances
+XenMachine* XenMachine_new();
 
 
 #ifdef __cplusplus

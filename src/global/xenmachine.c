@@ -17,3 +17,13 @@ XenMachine* XenMachine_Main()
         return &XenMachine_MAIN;
     }
 }
+
+//constructor for new, heap allocated machine instances
+XenMachine* XenMachine_new()
+{
+    XenMachine* xem = malloc(sizeof(XenMachine));
+    xem->env = XenEnv_new();
+    xem->state = XenState_Start;
+    xem->err = XenErrStatus_Off;
+    return xem;
+}
