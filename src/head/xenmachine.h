@@ -21,7 +21,8 @@ typedef enum
 {
     XenState_Start,
     XenState_GetName,
-    XenState_GetInt
+    XenState_GetInt,
+    XenState_Assign
 } XenState;
 
 //sturcture for instance of the Xenon Machine
@@ -42,6 +43,18 @@ XenState XenMachine_Main_state();
 
 //constructs new instances
 XenMachine* XenMachine_new();
+
+static inline void 
+XenMachine_state_set(XenMachine* xm, XenState state)
+{
+    xm->state = state;
+}
+
+static inline void
+XenMachine_Main_state_set(XenState state)
+{
+    XenMachine_Main()->state = state;
+}
 
 
 #ifdef __cplusplus
