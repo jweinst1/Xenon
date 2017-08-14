@@ -34,7 +34,7 @@ static inline void
 XenString_expand(XenString* xs, const long size)
 {
     xs->capacity += size;
-    xs->str = realloc(xs->str, xs->capacity);
+    xs->str = (char*)realloc(xs->str, xs->capacity);
 }
 
 void XenString_append(XenString* xs1, XenString* xs2);

@@ -3,7 +3,7 @@
 //used for creating new xo with no type
 XenObject* XenObject_new()
 {
-    XenObject* xo = malloc(sizeof(XenObject));
+    XenObject* xo = (XenObject*)malloc(sizeof(XenObject));
     xo->next = NULL;
     xo->prev = NULL;
     return xo;
@@ -65,7 +65,7 @@ XenObject* XenObject_pop(XenObject* xo)
 {
     if(XenObject_IS_SING(xo)) return xo;
     else
-    {
+    { 
         if(!(XenObject_IS_FRONT(xo))) XenObject_ADV_FRONT(xo);
         xo->next->prev = NULL;
         XenObject* popped = xo;

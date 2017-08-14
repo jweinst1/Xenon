@@ -1,24 +1,26 @@
 #ifndef XEN_OBJECT_H
 #define XEN_OBJECT_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-//defines the basic XenObject interface structure for streams
+
+//defines the basic XenObject interface class for streams
 
 
 
 #define XenObject_HANDLE XenType type; \
-        struct XenObject * next; \
-        struct XenObject * prev;
+        XenObject * next; \
+        XenObject * prev;
 
-struct XenObject
+class XenObject
 {
+public:
     XenObject_HANDLE
+public:
+    XenType getType();
+    void setType(XenType type);
+    XenObject* getNext();
+    XenObject* getPrev();
 };
-
-typedef struct XenObject XenObject;
 
 
 
@@ -152,9 +154,7 @@ XenObject* XenObject_pop(XenObject* xo);
 
 XenObject* XenObject_remove(XenObject* xo);
 
-#ifdef __cplusplus
-}
-#endif
+
 
 
 #endif

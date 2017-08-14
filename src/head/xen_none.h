@@ -22,7 +22,7 @@ typedef struct {
 static inline XenNone*
 XenNone_new()
 {
-    XenNone* xn = malloc(sizeof(XenNone));
+    XenNone* xn = (XenNone*)malloc(sizeof(XenNone));
     XenNone_MARK_TYPE(xn);
     return xn;
 }
