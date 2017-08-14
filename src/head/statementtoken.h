@@ -10,7 +10,8 @@ typedef enum
 {
     XenTokenType_Assign,
     XenTokenType_Map,
-    XenTokenType_Filter
+    XenTokenType_Filter,
+    XenTokenType_Reduce
 } XenTokenType;
 
 //tokens consumed by machine to facilitate computation
