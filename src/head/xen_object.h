@@ -3,23 +3,48 @@
 
 
 
-//defines the basic XenObject interface class for streams
+//defines the basic XenObject base class for streams
+//All objects in Xenon must inherit from this class
 
 
-
-#define XenObject_HANDLE XenType type; \
-        XenObject * next; \
-        XenObject * prev;
 
 class XenObject
 {
 public:
-    XenObject_HANDLE
-public:
-    XenType getType();
-    void setType(XenType type);
-    XenObject* getNext();
-    XenObject* getPrev();
+    inline XenType getType()
+    {
+        return type;
+    }
+    
+    inline void setType(XenType type)
+    {
+        type = type;
+    }
+    
+    inline XenObject* getNext()
+    {
+        return next;
+    }
+    
+    inline void setNext(XenObject* xo)
+    {
+        next = xo;
+    }
+    
+    inline XenObject* getPrev()
+    {
+        return prev;
+    }
+    
+    inline void setPrev(XenObject* xo)
+    {
+        prev = xo;
+    }
+    
+private:
+    XenType type;
+    XenObject* next;
+    XenObject* prev;
 };
 
 
