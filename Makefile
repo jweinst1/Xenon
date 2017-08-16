@@ -3,11 +3,11 @@ CCPP = g++
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
 INC_DIR = src/head
-CFLAGS = -c -Wall -I$(INC_DIR)
+CFLAGS =  -c -std=c++11 -Wall -I$(INC_DIR)
 
-all: lib/xen_object.o lib/xen_bool.o lib/xen_char.o lib/xen_int.o lib/xen_reaction.o lib/xen_string.o lib/xengc.o lib/xenenv.o lib/xencomp.o lib/xenmachine.o  
+all: lib/xen_object.o   
 
-lib/xen_object.o: src/objects/xen_object.c $(INC_DIR)/Xenon.h; $(CCPP) $(CFLAGS) src/objects/xen_object.c  -o $@
+lib/xen_object.o: src/objects/XenObject.cpp $(INC_DIR)/Xenon.h; $(CCPP) $(CFLAGS) src/objects/XenObject.cpp  -o $@
 
 lib/xen_bool.o: src/objects/xen_bool.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/objects/xen_bool.c  -o $@
 

@@ -93,6 +93,12 @@ public:
     {
         return *xo;
     }
+    
+    static bool samePnt(XenObject* xo1, XenObject* xo2)
+    {
+        return xo1 == xo2;
+    }
+    
 public:
 //iterator methods
     XenObject* getFront();
@@ -100,6 +106,8 @@ public:
     
     void append(XenObject* xo);
     void put(XenObject* xo);
+    
+    int length();
     
 private:
     XenType type;
@@ -109,7 +117,7 @@ private:
 
 
 
-
+/*
 //advances pointer to back of stream
 #define XenObject_ADV_BACK(xo) while(xo->next != NULL) xo = xo->next
 
@@ -139,58 +147,7 @@ private:
      xo1->prev = xo2; \
      xo2->next = xo1; \
     }while(0)
-
-
-//functions
-
-//gets new xo with no type
-XenObject* XenObject_new();
-
-void XenObject_append(XenObject* xo1, XenObject* xo2);
-
-void XenObject_put(XenObject* xo1, XenObject* xo2);
-
-//assumes xo1 is at back and appends, return xo2
-static inline XenObject*
-XenObject_append_auto(XenObject* xo1, XenObject* xo2)
-{
-    xo1->next = xo2;
-    xo2->prev = xo1;
-    return xo2;
-}
-
-//used for successive puts
-static inline XenObject*
-XenObject_put_auto(XenObject* xo1, XenObject* xo2)
-{
-    xo1->prev = xo2;
-    xo2->next = xo1;
-    return xo1;
-}
-
-static inline XenObject*
-XenObject_get_back(XenObject* xo)
-{
-    XenObject_ADV_BACK(xo);
-    return xo;
-}
-
-static inline XenObject*
-XenObject_get_front(XenObject* xo)
-{
-    XenObject_ADV_FRONT(xo);
-    return xo;
-}
-
-void XenObject_insert_next(XenObject* xo1, XenObject* xo2);
-
-int XenObject_length(XenObject* xo);
-
-int XenObject_contains(XenObject* xo, XenObject* xoitem);
-
-XenObject* XenObject_pop(XenObject* xo);
-
-XenObject* XenObject_remove(XenObject* xo);
+*/
 
 
 
