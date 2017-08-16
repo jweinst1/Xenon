@@ -41,6 +41,21 @@ public:
         prev = xo;
     }
     
+    inline bool nextIsNull()
+    {
+        return next == NULL;
+    }
+    
+    inline bool prevIsNull()
+    {
+        return prev == NULL;
+    }
+    
+    inline bool isSinglet()
+    {
+        return prev == NULL && next == NULL;
+    }
+    
 private:
     XenType type;
     XenObject* next;
