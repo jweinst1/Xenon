@@ -9,6 +9,7 @@
 
 #include "XenType.h"
 #include "XenObject.h"
+#include "XenStreamManager.h"
 
 
 #endif

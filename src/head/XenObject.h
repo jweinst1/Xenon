@@ -10,6 +10,11 @@
 
 class XenObject
 {
+private:
+    XenType type;
+    XenObject* next;
+    XenObject* prev;
+    
 public:
     XenType getType()
     {
@@ -109,11 +114,6 @@ public:
     XenObject* at(int index);
     
     int length();
-    
-private:
-    XenType type;
-    XenObject* next;
-    XenObject* prev;
 };
 
 
