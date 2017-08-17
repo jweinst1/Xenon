@@ -106,6 +106,7 @@ public:
     
     void append(XenObject* xo);
     void put(XenObject* xo);
+    XenObject* at(int index);
     
     int length();
     

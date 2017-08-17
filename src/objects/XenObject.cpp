@@ -32,10 +32,25 @@ void XenObject::put(XenObject* xo)
     }   
 }
 
+
 int XenObject::length()
 {
     int i = 1;
     XenObject* xoPnt = this;
     while((xoPnt = xoPnt->getNext())) i++;
     return i;
+}
+
+//gets an object at some index in the stream
+//if index is larger than length, simply returns the last object
+XenObject* XenObject::at(int index)
+{
+    XenObject* xenPnt = this;
+    while(index--)
+    {
+        if(xenPnt->nextIsNull()) return xenPnt;
+        xenPnt = xenPnt->getNext();
+        
+    }
+    return xenPnt;
 }
