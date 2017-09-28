@@ -1,8 +1,0 @@
-TYPECODES
-
-*unsigned*
---------------------
-0 = XenNone
-1 = XenBool
-2 = XenChar
-3 = XenOperation

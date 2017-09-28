@@ -1,8 +1,12 @@
+#ifndef SEQUENCE_HEADER
+#define SEQUENCE_HEADER
+
 #include <iostream>
 #include <exception>
 #include <string>
 #include <cstddef>
 #include <algorithm>
+#include <cstdarg>
 
 typedef std::size_t size_t;
 
@@ -30,8 +34,21 @@ private:
 T* _array;
 size_t _size;
 public:
-Sequence(size_t size) : _array(new T[size]), _size(size)
+
+Sequence(size_t cap) : _array(new T[cap]), _size(cap)
 {
+}
+
+Sequence(size_t cap, size_t arg_c, ...) : _array(new T[cap]), _size(cap)
+{
+        va_list args;
+        va_start(args, arg_c);
+        size_t i;
+        for(i=0; i< arg_c; i++)
+        {
+                _array[i] = va_arg(args, T);
+        }
+        va_end(args);
 }
 ~Sequence()
 {
@@ -85,3 +102,5 @@ friend Sequence<T>& operator+= (Sequence<T>& a, const Sequence<T>& b)
         return *a;
 }
 };
+
+#endif
