@@ -3,9 +3,9 @@ CCPP = g++
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
 INC_DIR = src/head
-CFLAGS =  -c -std=c++11 -Wall -I$(INC_DIR)
+CFLAGS =  -c $(CPPFLAGS) -Wall -I$(INC_DIR)
 
-all: lib/xen_object.o   
+all: lib/xen_object.o
 
 lib/xen_object.o: src/objects/XenObject.cpp $(INC_DIR)/Xenon.h; $(CCPP) $(CFLAGS) src/objects/XenObject.cpp  -o $@
 
