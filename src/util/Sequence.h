@@ -1,6 +1,10 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include <cstddef>
+#include <algorithm>
+
+typedef std::size_t size_t;
 
 class SequenceException : public std::exception
 {
@@ -24,9 +28,9 @@ class Sequence
 {
 private:
 T* _array;
-int _size;
+size_t _size;
 public:
-Sequence(int size) : _array(new T[size]), _size(size)
+Sequence(size_t size) : _array(new T[size]), _size(size)
 {
 }
 ~Sequence()
@@ -34,7 +38,7 @@ Sequence(int size) : _array(new T[size]), _size(size)
         delete[] _array;
 }
 //overloads getitem operator for get and set
-T& operator[] (const int index)
+T& operator[] (const int index) const
 {
         if(index < _size)
         {
@@ -46,13 +50,38 @@ T& operator[] (const int index)
         }
 }
 
-T* begin()
+T* begin() const
 {
         return _array;
 }
 
-T* end()
+T* at(size_t index) const
+{
+        return _array + index;
+}
+
+T* end() const
 {
         return _array + _size;
+}
+
+size_t size() const
+{
+        return _size;
+}
+
+friend Sequence<T> operator+ (const Sequence<T>& a, const Sequence<T>& b)
+{
+        Sequence<T> newseq(a._size + b._size);
+        std::copy(a.begin(), a.end(), newseq.begin());
+        std::copy(b.begin(), b.end(), newseq.at(a._size));
+        return newseq;
+}
+
+friend Sequence<T>& operator+= (Sequence<T>& a, const Sequence<T>& b)
+{
+        a._size += b._size;
+        std::copy(b.begin(), b.end(), a.at(b._size));
+        return *a;
 }
 };
