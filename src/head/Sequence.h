@@ -1,5 +1,5 @@
-#ifndef SEQUENCE_HEADER
-#define SEQUENCE_HEADER
+#ifndef XEN_SEQUENCE_HEADER
+#define XEN_SEQUENCE_HEADER
 
 #include <iostream>
 #include <exception>
