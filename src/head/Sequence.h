@@ -41,6 +41,7 @@ Sequence(size_t cap) : _array(new T[cap]), _size(cap)
 
 Sequence(size_t cap, size_t arg_c, ...) : _array(new T[cap]), _size(cap)
 {
+        if(arg_c > cap) throw SequenceException("Argument constructor count greater than capacity.");
         va_list args;
         va_start(args, arg_c);
         size_t i;
