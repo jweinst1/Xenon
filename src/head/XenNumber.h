@@ -9,6 +9,9 @@ public:
 XenNumber(double value) : _value(value)
 {
 }
+~XenNumber()
+{
+}
 
 double getValue()
 {
