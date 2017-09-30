@@ -10,7 +10,11 @@ enum XenEventType
 
 class XenEvent : public XenObject
 {
-
+private:
+XenEventType type;
+Sequence<XenObject> args;
+public:
+static XenEventType strToEvType(const char* token);
 };
 
 #endif //XENON_EVENT_HEADER

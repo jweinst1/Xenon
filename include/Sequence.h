@@ -35,7 +35,7 @@ T* _array;
 size_t _size;
 public:
 
-Sequence(size_t cap) : _array(new T[cap]), _size(cap)
+Sequence(size_t cap = 1) : _array(new T[cap]), _size(cap)
 {
 }
 
