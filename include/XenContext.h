@@ -10,7 +10,8 @@ public:
 XenContext()
 {
 }
-~XenContext(){
+~XenContext()
+{
 }
 
 void setVariable(const XenObject& xo)
