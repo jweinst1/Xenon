@@ -6,12 +6,7 @@ class XenNumber : public XenObject
 private:
 double _value;
 public:
-XenNumber(double value) : _value(value)
-{
-}
-~XenNumber()
-{
-}
+XenNumber(double value);
 
 double getValue()
 {

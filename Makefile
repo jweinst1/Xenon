@@ -2,27 +2,13 @@ CC = gcc
 CCPP = g++
 CPPFLAGS =	-std=c++11
 CPPLINK = -lstdc++
-INC_DIR = src/head
-CFLAGS =  -c $(CPPFLAGS) -Wall -I$(INC_DIR)
+INC_DIR = include
 
-all: lib/xen_object.o
+CPP_FILES := $(wildcard src/*.cpp)
+OBJ_FILES := $(addprefix lib/,$(notdir $(CPP_FILES:.cpp=.o)))
+LD_FLAGS :=
+CC_FLAGS := -c $(CPPFLAGS) -Wall -I$(INC_DIR)
 
-lib/xen_object.o: src/objects/XenObject.cpp $(INC_DIR)/Xenon.h; $(CCPP) $(CFLAGS) src/objects/XenObject.cpp  -o $@
+bin/Xenon: $(OBJ_FILES) ; $(CCPP) $(LD_FLAGS) -o $@ $^
 
-lib/xen_bool.o: src/objects/xen_bool.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/objects/xen_bool.c  -o $@
-
-lib/xen_char.o: src/objects/xen_char.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/objects/xen_char.c  -o $@
-
-lib/xen_int.o: src/objects/xen_int.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/objects/xen_int.c  -o $@
-
-lib/xen_reaction.o: src/reactions/xen_reaction.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/reactions/xen_reaction.c  -o $@
-
-lib/xen_string.o: src/objects/xen_string.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/objects/xen_string.c  -o $@
-
-lib/xengc.o: src/global/xengc.c  $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/global/xengc.c  -o $@
-
-lib/xenenv.o: src/global/xenenv.c $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/global/xenenv.c lib/xengc.o -o $@
-
-lib/xencomp.o: src/reactions/xencomp.c $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/reactions/xencomp.c -o $@
-
-lib/xenmachine.o: src/global/xenmachine.c $(INC_DIR)/Xenon.h; $(CC) $(CFLAGS) src/global/xenmachine.c -o $@
+lib/%.o: src/%.cpp ; $(CCPP) $(CC_FLAGS) -c -o $@ $<
