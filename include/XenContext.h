@@ -6,15 +6,19 @@
 class XenContext
 {
 public:
-enum State   //will be used when labels are added.
-{
-        Singular
-};
 
-XenContext();
-~XenContext();
+XenContext()
+{
+}
+~XenContext(){
+}
+
+void setVariable(const XenObject& xo)
+{
+        _variable = xo;
+}
 private:
-XenObject variable;
+XenObject _variable;
 };
 
 #endif

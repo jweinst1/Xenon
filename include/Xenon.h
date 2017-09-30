@@ -3,6 +3,7 @@
 
 //overal header for Xenon language
 
+#include "Sequence.h"
 #include "XenObject.h"
 #include "XenNumber.h"
 
