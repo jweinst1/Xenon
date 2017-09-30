@@ -4,5 +4,6 @@
 //overal header for Xenon language
 
 #include "XenObject.h"
+#include "XenNumber.h"
 
 #endif
