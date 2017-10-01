@@ -14,6 +14,20 @@ XenEventType XenEvent::strToEvType(const char* token)
                 default:
                         throw "doo";
                 }
+        case 'o':
+                switch(token[1])
+                {
+                case 'u':
+                        switch(token[2])
+                        {
+                        case 't':
+                                return XenEventType_Out;
+                        default:
+                                throw "aoo";
+                        }
+                default:
+                        throw "foo";
+                }
         default:
                 throw "foo";
         }

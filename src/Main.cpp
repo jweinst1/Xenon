@@ -2,6 +2,7 @@
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
-        std::cout << XenEvent::strToEvType(argv[1]) << "\n";
+        XenError nine("Error index %s should be %d", "foo", 6);
+        std::cout << nine.what() << "\n";
         return 0;
 }

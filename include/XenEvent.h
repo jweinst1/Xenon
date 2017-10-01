@@ -11,8 +11,8 @@ enum XenEventType
 class XenEvent : public XenObject
 {
 private:
-XenEventType type;
-Sequence<XenObject> args;
+XenEventType _type;
+Sequence<XenObject> _args;
 public:
 static XenEventType strToEvType(const char* token);
 };
