@@ -2,30 +2,13 @@
 #define XEN_SEQUENCE_HEADER
 
 #include <iostream>
-#include <exception>
-#include <string>
 #include <cstddef>
 #include <algorithm>
 #include <cstdarg>
 
+#include "XenError.h"
+
 typedef std::size_t size_t;
-
-class SequenceException : public std::exception
-{
-private:
-std::string _msg;
-public:
-SequenceException(const char* message) : _msg(message)
-{
-}
-~SequenceException(){
-}
-
-const char* what() const throw ()
-{
-        return _msg.c_str();
-}
-};
 
 template<class T>
 class Sequence
@@ -41,7 +24,7 @@ Sequence(size_t cap = 1) : _array(new T[cap]), _size(cap)
 
 Sequence(size_t cap, size_t arg_c, ...) : _array(new T[cap]), _size(cap)
 {
-        if(arg_c > cap) throw SequenceException("Argument constructor count greater than capacity.");
+        if(arg_c > cap) throw XenError("Argument constructor count %d greater than capacity %d.", arg_c, cap);
         va_list args;
         va_start(args, arg_c);
         size_t i;
@@ -64,7 +47,7 @@ T& operator[] (const int index) const
         }
         else
         {
-                throw SequenceException("index larger than size of sequence.");
+                throw XenError("index %d larger than size %d.", index, _size);
         }
 }
 
