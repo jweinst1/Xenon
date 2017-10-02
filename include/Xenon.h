@@ -6,6 +6,7 @@
 #include "XenError.h"
 
 #include "Sequence.h"
+#include "CharBuf.h"
 
 #include "XenObject.h"
 #include "XenNumber.h"

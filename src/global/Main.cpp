@@ -2,7 +2,10 @@
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
-        XenError nine("Error index %s should be %d", "foo", 6);
-        std::cout << nine.what() << "\n";
+        CharBuf foo;
+        foo.append('f');
+        foo.append('g');
+        foo.append('\n');
+        std::cout << foo.data();
         return 0;
 }
