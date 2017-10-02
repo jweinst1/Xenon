@@ -4,6 +4,6 @@
 
 int main(int argc, char const *argv[]) {
         CharSet nums("0123478");
-        std::cout << nums.containsAll("31202");
+        std::cout << nums['0'];
         return 0;
 }

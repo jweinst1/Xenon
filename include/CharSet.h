@@ -16,6 +16,11 @@ bool contains(char ch)
 {
         return _chars[(unsigned char)ch];
 }
+
+bool operator[] (char ch)
+{
+        return _chars[(unsigned char)ch];
+}
 bool containsAll(const char* chlst);
 };
 

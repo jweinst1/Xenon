@@ -7,6 +7,7 @@
 
 #include "Sequence.h"
 #include "CharBuf.h"
+#include "CharSet.h"
 
 #include "XenObject.h"
 #include "XenNumber.h"
