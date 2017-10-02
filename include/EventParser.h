@@ -2,12 +2,16 @@
 #define EVENT_PARSER_HEADER
 
 #include <cstdlib>
-#include <cctype>
 
-class EventParser
+//contains sets of tokens used to parse event
+class EventTokens
 {
 public:
-
+static CharSet digits;
+static CharSet alpha;
+static CharSet alphaNumeric;
+static CharSet symbols;
+static CharSet eventName;
 };
 
 #endif
