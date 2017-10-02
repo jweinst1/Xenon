@@ -9,7 +9,7 @@ CharBuf::CharBuf() : _buf(new char[CHARBUF_DEF_CAP]),
 
 void CharBuf::reSize()
 {
-        char* newBuf = new char[_cap * 2];
+        char* newBuf = new char[(_cap *= 2)];
         std::copy(_buf, _buf + _len, newBuf);
         std::swap(_buf, newBuf);
         delete[] newBuf;
