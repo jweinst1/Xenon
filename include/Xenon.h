@@ -7,9 +7,10 @@
 
 #include "Sequence.h"
 
-
 #include "XenObject.h"
 #include "XenNumber.h"
 #include "XenEvent.h"
+
+#include "EventParser.h"
 
 #endif
