@@ -1,11 +1,9 @@
 #include "Xenon.h"
+#include "CharSet.h"
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
-        CharBuf foo;
-        foo.append('f');
-        foo.append('g');
-        foo.append('\n');
-        std::cout << foo.data();
+        CharSet nums("0123478");
+        std::cout << nums.containsAll("31202");
         return 0;
 }

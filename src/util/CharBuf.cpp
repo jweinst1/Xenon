@@ -1,4 +1,4 @@
-#include "Xenon.h"
+#include "CharBuf.h"
 
 CharBuf::CharBuf() : _buf(new char[CHARBUF_DEF_CAP]),
         _cap(CHARBUF_DEF_CAP),
