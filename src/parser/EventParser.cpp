@@ -6,8 +6,8 @@ CharSet EventTokens::alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 
 CharSet EventTokens::alphaNumeric = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-CharSet EventTokens::symbols = "+-*/";
+CharSet EventTokens::symbols = "_+-*/%~!@$^&<>=?";
 
-CharSet EventTokens::eventName = "+-*/%~!@$^&<>=?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+CharSet EventTokens::eventName = "_+-*/%~!@$^&<>=?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 CharSet EventTokens::numbers = "-0123456789.";
