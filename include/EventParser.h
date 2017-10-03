@@ -12,6 +12,7 @@ static CharSet alpha;
 static CharSet alphaNumeric;
 static CharSet symbols;
 static CharSet eventName;
+static CharSet numbers;
 };
 
 #endif

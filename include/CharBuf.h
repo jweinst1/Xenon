@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <algorithm>
 
-#define CHARBUF_DEF_CAP 500
+#define CHARBUF_DEF_CAP 300
 
 //utility class for reading chars from code or lines of input
 class CharBuf
