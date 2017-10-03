@@ -1,6 +1,8 @@
 #ifndef XENON_TOKENIZER_HEADER
 #define XENON_TOKENIZER_HEADER
 
+#include <vector>
+
 //set of charsets to quickly classify characters with bool membership
 class TokenSets
 {
@@ -12,6 +14,47 @@ static CharSet alphaNumeric;
 static CharSet symbols;
 static CharSet eventName;
 static CharSet numbers;
+};
+
+//Buffer like class that contains an event type and tokens which
+//can be built into an event object
+class EventBuilder
+{
+private:
+XenEventType _type;
+std::vector<CharBuf> _nodes;
+public:
+EventBuilder(){
+}
+~EventBuilder(){
+}
+XenEventType getType()
+{
+        return _type;
+}
+
+void setType(XenEventType eType)
+{
+        _type = etype;
+}
+
+void pushNode(CharBuf& node)
+{
+        _nodes.push_back(node);
+}
+
+CharBuf& operator[](int index)
+{
+        return _nodes.at(index);
+}
+};
+
+//state tracking for tokenizer
+enum TokzState
+{
+        TokzState_Base,
+        TokzState_Comment,
+        TokzState_EventName
 };
 
 class Tokenizer
