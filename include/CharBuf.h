@@ -44,6 +44,7 @@ inline void append(char ch)
         _buf[++_len] = '\0';
         if(_len == _cap) reSize();
 }
+void reserve(size_t newSize);
 
 };
 

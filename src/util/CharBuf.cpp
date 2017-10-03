@@ -14,3 +14,14 @@ void CharBuf::reSize()
         std::swap(_buf, newBuf);
         delete[] newBuf;
 }
+
+void CharBuf::reserve(size_t newSize)
+{
+        if(newSize > _cap)
+        {
+                char* newBuf = new char[(_cap = newSize)];
+                std::copy(_buf, _buf + _len, newBuf);
+                std::swap(_buf, newBuf);
+                delete[] newBuf;
+        }
+}
