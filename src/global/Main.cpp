@@ -3,6 +3,6 @@
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
-        std::cout << EventTokens::digits['0'];
+        std::cout << TokenSets::whiteSpace.containsAll("      \t\n");
         return 0;
 }

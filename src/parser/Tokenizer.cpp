@@ -1,5 +1,7 @@
 #include "Xenon.h"
 
+CharSet TokenSets::whiteSpace = " \n\t\r\v\f";
+
 CharSet TokenSets::digits = "0123456789";
 
 CharSet TokenSets::alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
