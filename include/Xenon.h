@@ -9,10 +9,10 @@
 #include "CharBuf.h"
 #include "CharSet.h"
 
+#include "Lexer.h"
+
 #include "XenObject.h"
 #include "XenNumber.h"
 #include "XenEvent.h"
-#include "Lexer.h"
-#include "EventParser.h"
 
 #endif
