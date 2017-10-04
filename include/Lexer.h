@@ -23,6 +23,8 @@ static CharSet eventName;
 static CharSet numbers;
 };
 
+
+
 class Lexer {
 
 public:

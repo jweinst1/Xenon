@@ -18,4 +18,21 @@ enum XenErrType
         XenErrType_EventName
 };
 
+//state tracking for tokenizer
+enum TokzState
+{
+        TokzState_Base,
+        TokzState_Comment,
+        TokzState_EventName,
+        TokzState_Number
+};
+
+//denotes type of token
+enum TokenType
+{
+        TokenType_EventStart,
+        TokenType_EventEnd,
+        TokenType_Number
+};
+
 #endif

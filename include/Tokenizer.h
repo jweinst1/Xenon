@@ -1,13 +1,21 @@
 #ifndef XENON_TOKENIZER_HEADER
 #define XENON_TOKENIZER_HEADER
 
-//state tracking for tokenizer
-enum TokzState
+#include "EnumTypes.h"
+
+struct Token
 {
-        TokzState_Base,
-        TokzState_Comment,
-        TokzState_EventName,
-        TokzState_Number
+        TokenType type;
+        union
+        {
+                XenEventType event;
+                double number;
+
+        }
+        Token(double value) : type(TokenType_Number), number(value)
+        {
+
+        }
 };
 
 class Tokenizer
