@@ -13,3 +13,8 @@ CharSet TokenSets::symbols = "_+-*/%~!@$^&<>=?";
 CharSet TokenSets::eventName = "_+-*/%~!@$^&<>=?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 CharSet TokenSets::numbers = "-0123456789.";
+
+Tokenizer::Tokenizer() : _state(TokzState_Base)
+{
+
+}

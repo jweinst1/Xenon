@@ -35,7 +35,7 @@ XenEventType getType()
 
 void setType(XenEventType eType)
 {
-        _type = etype;
+        _type = eType;
 }
 
 void pushNode(CharBuf& node)
@@ -47,6 +47,24 @@ CharBuf& operator[](int index)
 {
         return _nodes.at(index);
 }
+
+int length()
+{
+        return _nodes.size();
+}
+
+CharBuf& lastNode()
+{
+        return _nodes.back();
+}
+
+//used for tokenization and to prevent re-copying
+CharBuf& createAndGetLast()
+{
+        CharBuf newBuf;
+        _nodes.push_back(newBuf);
+        return newBuf;
+}
 };
 
 //state tracking for tokenizer
@@ -54,17 +72,21 @@ enum TokzState
 {
         TokzState_Base,
         TokzState_Comment,
-        TokzState_EventName
+        TokzState_EventName,
+        TokzState_Number
 };
 
 class Tokenizer
 {
 private:
-/* data */
+TokzState _state;
+EventBuilder _eventBld;
 
 public:
 Tokenizer ();
-virtual ~Tokenizer ();
+~Tokenizer ();
+
+
 };
 
 #endif
