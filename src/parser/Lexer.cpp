@@ -1,4 +1,5 @@
-#include "Xenon.h"
+#include "Lexer.h"
+#include "CharSet.h"
 
 CharSet TokenSets::whiteSpace = " \n\t\r\v\f";
 

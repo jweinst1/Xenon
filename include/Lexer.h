@@ -1,16 +1,13 @@
 #ifndef XENON_LEXER_HEADER
 #define XENON_LEXER_HEADER
 
-/*Lexer header***
- * Classifies tokens and stores all enum types related to parsing and lexing
- */
+#include "EnumTypes.h"
+#include "CharSet.h"
+#include "XenError.h"
 
-enum XenEventType
-{
-        XenEventType_In,
-        XenEventType_Out,
-        XenEventType_Add
-};
+/*Lexer header***
+ * Classifies tokens
+ */
 
 
 //set of charsets to quickly classify characters with bool membership

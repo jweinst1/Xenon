@@ -5,11 +5,6 @@
 #include <cstdio>
 #include <exception>
 
-enum XenErrType
-{
-        XenErrType_EventName
-};
-
 class XenError : public std::exception
 {
 private:

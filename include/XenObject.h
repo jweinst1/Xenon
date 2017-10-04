@@ -1,11 +1,7 @@
 #ifndef XENON_OBJECT_HEADER
 #define XENON_OBJECT_HEADER
 
-//enum type for XenObject only
-enum XenType
-{
-        XenType_Number
-};
+#include "EnumTypes.h"
 
 //highest level class that all other values/objects inherit from in Xenon
 class XenObject

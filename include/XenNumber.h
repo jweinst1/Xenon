@@ -1,6 +1,8 @@
 #ifndef XENON_NUMBER_HEADER
 #define XENON_NUMBER_HEADER
 
+#include "XenObject.h"
+
 class XenNumber : public XenObject
 {
 private:

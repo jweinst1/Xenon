@@ -1,4 +1,4 @@
-#include "Xenon.h"
+#include "XenError.h"
 
 XenError::XenError(const char* message, ...)
 {
