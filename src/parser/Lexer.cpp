@@ -13,7 +13,9 @@ CharSet TokenSets::symbols = "_+-*/%~!@$^&<>=?";
 
 CharSet TokenSets::eventName = "_+-*/%~!@$^&<>=?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-CharSet TokenSets::numbers = "-0123456789.";
+CharSet TokenSets::numbers = "0123456789.";
+
+CharSet TokenSets::numberStart = "-0123456789";
 
 
 //converts single digit character to double in O(1)
@@ -36,19 +38,21 @@ double Lexer::oneDigit(const char* ch)
         }
 }
 
-XenEventType Lexer::eventType(const char* token)
+XenEventType Lexer::eventType(const char* token, size_t* nParsed)
 {
         switch(token[0])
         {
         case '+':
+                *nParsed = 1;
                 return XenEventType_Add;
         case 'i':
                 switch(token[1])
                 {
                 case 'n':
+                        *nParsed = 2;
                         return XenEventType_In;
                 default:
-                        throw "doo";
+                        throw XenError("Invalid Event: %c%c", token[0], token[1]);
                 }
         case 'o':
                 switch(token[1])
@@ -57,6 +61,7 @@ XenEventType Lexer::eventType(const char* token)
                         switch(token[2])
                         {
                         case 't':
+                                *nParsed = 3;
                                 return XenEventType_Out;
                         default:
                                 throw "aoo";
@@ -65,6 +70,6 @@ XenEventType Lexer::eventType(const char* token)
                         throw "foo";
                 }
         default:
-                throw "foo";
+                throw XenError("Invalid Event: %c", token[0]);
         }
 }
