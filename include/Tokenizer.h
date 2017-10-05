@@ -11,22 +11,24 @@ struct Token
                 XenEventType event;
                 double number;
 
-        }
-        Token(double value) : type(TokenType_Number), number(value)
-        {
+        };
+        Token(double value);
 
-        }
+        Token(XenEventType value);
+
+        Token(TokenType value);
 };
 
 class Tokenizer
 {
 private:
 TokzState _state;
-EventBuilder _eventBld;
 
 public:
 Tokenizer ();
 ~Tokenizer ();
+
+
 
 
 
