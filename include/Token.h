@@ -1,5 +1,5 @@
-#ifndef XENON_TOKENIZER_HEADER
-#define XENON_TOKENIZER_HEADER
+#ifndef XENON_TOKEN_HEADER
+#define XENON_TOKEN_HEADER
 
 #include "EnumTypes.h"
 

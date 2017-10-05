@@ -1,8 +1,8 @@
 #ifndef XENON_PARSER_HEADER
 #define XENON_PARSER_HEADER
 
-#include "Token.h"
 #include "EnumTypes.h"
+#include "Token.h"
 
 class Parser
 {
