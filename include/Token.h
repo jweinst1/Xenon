@@ -1,6 +1,8 @@
 #ifndef XENON_TOKENIZER_HEADER
 #define XENON_TOKENIZER_HEADER
 
+#include "EnumTypes.h"
+
 struct Token
 {
         TokenType type;

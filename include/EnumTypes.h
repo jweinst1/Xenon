@@ -27,6 +27,12 @@ enum TokzState
         TokzState_Number
 };
 
+//states for Xenon parser
+enum ParseState
+{
+        ParseState_Base
+};
+
 //denotes type of token
 enum TokenType
 {
