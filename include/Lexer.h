@@ -33,7 +33,7 @@ class Lexer {
 
 public:
 static double oneDigit(const char* ch);
-static XenEventType eventType(const char* token, size_t* nParsed);
+static void eventType(char* token, XenEventType* eType, char** nextChar);
 
 static inline bool isNumberStart(const char* ch)
 {

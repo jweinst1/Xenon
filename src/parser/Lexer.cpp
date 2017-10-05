@@ -38,19 +38,20 @@ double Lexer::oneDigit(const char* ch)
         }
 }
 
-XenEventType Lexer::eventType(const char* token, size_t* nParsed)
+//parses event name using static jump table structure.
+void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
 {
         switch(token[0])
         {
         case '+':
-                *nParsed = 1;
-                return XenEventType_Add;
+                *eType = XenEventType_Add;
+                *nextChar = token + 1;
         case 'i':
                 switch(token[1])
                 {
                 case 'n':
-                        *nParsed = 2;
-                        return XenEventType_In;
+                        *nextChar = token + 2;
+                        *eType = XenEventType_In;
                 default:
                         throw XenError("Invalid Event: %c%c", token[0], token[1]);
                 }
@@ -61,8 +62,8 @@ XenEventType Lexer::eventType(const char* token, size_t* nParsed)
                         switch(token[2])
                         {
                         case 't':
-                                *nParsed = 3;
-                                return XenEventType_Out;
+                                *nextChar = token + 3;
+                                *eType = XenEventType_Out;
                         default:
                                 throw "aoo";
                         }
