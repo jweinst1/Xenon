@@ -2,22 +2,9 @@
 #define XENON_TOKENIZER_HEADER
 
 #include "EnumTypes.h"
+#include "Token.h"
 
-struct Token
-{
-        TokenType type;
-        union
-        {
-                XenEventType event;
-                double number;
 
-        };
-        Token(double value);
-
-        Token(XenEventType value);
-
-        Token(TokenType value);
-};
 
 class Tokenizer
 {
