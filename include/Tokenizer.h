@@ -17,7 +17,7 @@ Token _inst;
 
 public:
 Tokenizer (Parser* prs);
-~Tokenizer ();
+
 
 void tokenize(char* code);
 

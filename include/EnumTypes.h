@@ -23,9 +23,8 @@ enum XenErrType
 enum TokzState
 {
         TokzState_Base,
-        TokzState_Comment,
-        TokzState_EventName,
-        TokzState_Number
+        TokzState_Event,
+        TokzState_Comment
 };
 
 //states for Xenon parser

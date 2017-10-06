@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include "Tokenizer.h"
 #include "Lexer.h"
+#include "XenError.h"
 
 
 
@@ -26,7 +27,23 @@ void Tokenizer::tokenize(char* code)
                                 {
                                         Token::pntMake(&_inst, _curEvent);
                                         _parser->parse(_inst);
+                                        _state = TokzState_Event;
                                 }
+                                else throw XenError("Incorrect Event Name at: %d, isEventName: %d, eventisNull: %d", *cPnt, TokenSets::eventName.contains(*cPnt), _curEvent == XenEventType_null);
+                        }
+                        else if(*cPnt == '#')
+                        {
+                                _state = TokzState_Comment;
+                                cPnt++;
+                        }
+                        else cPnt++;
+                        break;
+                case TokzState_Event:
+                        if(*cPnt == '|')
+                        {
+                                Token::endMake(&_inst);
+                                _parser->parse(_inst);
+                                _state = TokzState_Base;
                         }
                         else if(TokenSets::numberStart.contains(*cPnt))
                         {
@@ -40,18 +57,18 @@ void Tokenizer::tokenize(char* code)
                                         Token::pntMake(&_inst, _number);
                                         _parser->parse(_inst);
                                 }
+                                else throw XenError("Invalid Number Seq at: %c", *cPnt);
                         }
-                        else if(*cPnt == '#')
-                        {
-                                _state = TokzState_Comment;
-                                cPnt++;
-                        }
+                        else cPnt++;
+                        break;
                 case TokzState_Comment:
                         if(*cPnt == '\n')
                         {
                                 _state = TokzState_Base;
                                 cPnt++;
                         }
+                        else cPnt++;
+                        break;
                 }
         }
 }

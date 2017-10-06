@@ -33,6 +33,11 @@ struct Token
                 tk->event = value;
                 tk->type = TokenType_EventStart;
         }
+
+        static inline void endMake(Token* tk)
+        {
+                tk->type = TokenType_EventEnd;
+        }
 };
 
 #endif

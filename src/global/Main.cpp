@@ -1,11 +1,16 @@
+#include <iostream>
+#include <string>
+
 #include "Lexer.h"
 #include "CharSet.h"
-#include "Token.h"
-#include <iostream>
+#include "Tokenizer.h"
+
 
 int main(int argc, char const *argv[]) {
-        std::cout << TokenSets::whiteSpace.containsAll("      \t\n");
-        Token h = Token::make(6);
-        std::cout << "\n" << h.number;
+        Parser machine;
+        Tokenizer toks(&machine);
+        std::string code = "in 5 | out 5";
+        code += '|';
+        toks.tokenize(const_cast<char*>(code.c_str()));
         return 0;
 }

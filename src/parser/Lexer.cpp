@@ -46,15 +46,18 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
         case '+':
                 *eType = XenEventType_Add;
                 *nextChar = token + 1;
+                break;
         case 'i':
                 switch(token[1])
                 {
                 case 'n':
                         *nextChar = token + 2;
                         *eType = XenEventType_In;
+                        break;
                 default:
                         *eType = XenEventType_null;
                 }
+                break;
         case 'o':
                 switch(token[1])
                 {
@@ -64,12 +67,15 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
                         case 't':
                                 *nextChar = token + 3;
                                 *eType = XenEventType_Out;
+                                break;
                         default:
                                 *eType = XenEventType_null;
                         }
+                        break;
                 default:
                         *eType = XenEventType_null;
                 }
+                break;
         default:
                 *eType = XenEventType_null;
         }
