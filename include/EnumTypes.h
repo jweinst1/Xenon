@@ -35,7 +35,8 @@ enum TokzState
 //states for Xenon parser
 enum ParseState
 {
-        ParseState_Base
+        ParseState_GetEvent,
+        ParseState_GetOp
 };
 
 //denotes type of token

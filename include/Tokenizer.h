@@ -9,6 +9,7 @@ class Tokenizer
 {
 private:
 TokzState _state;
+TokzState _prevState;
 Parser* _parser;
 XenEventType _curEvent;
 double _number;

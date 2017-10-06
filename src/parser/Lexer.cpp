@@ -61,7 +61,7 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
                 case '-':
                         *eType = XenEventType_Dec;
                         *nextChar = token + 2;
-                        break;
+                        return;
                 default: break;
                 }
                 *eType = XenEventType_Sub;

@@ -3,6 +3,8 @@
 
 //this file contains a context class to facilitate reaction streams
 
+#include "XenObject.h"
+
 class XenContext
 {
 public:
