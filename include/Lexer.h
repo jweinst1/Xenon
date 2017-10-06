@@ -44,6 +44,12 @@ static inline bool isEventStart(const char* ch)
 {
         return TokenSets::eventName.contains(*ch);
 }
+
+//tests if a token is a singular zero.
+static inline bool isZero(const char* ch)
+{
+        return *ch == '0' && TokenSets::whiteSpace.contains(ch[1]);
+}
 };
 
 

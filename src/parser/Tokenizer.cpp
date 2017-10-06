@@ -1,5 +1,7 @@
+#include <cstdlib>
 #include "Tokenizer.h"
 #include "Lexer.h"
+
 
 
 Tokenizer::Tokenizer(Parser* prs) : _state(TokzState_Base),
@@ -22,7 +24,21 @@ void Tokenizer::tokenize(char* code)
                                 Lexer::eventType(cPnt, &_curEvent, &cPnt);
                                 if(_curEvent)
                                 {
-                                        //_parser->parse()
+                                        Token::pntMake(&_inst, _curEvent);
+                                        _parser->parse(_inst);
+                                }
+                        }
+                        else if(TokenSets::numberStart.contains(*cPnt))
+                        {
+                                if(Lexer::isZero(cPnt))
+                                {
+                                        Token::pntMake(&_inst, 0);
+                                        _parser->parse(_inst);
+                                }
+                                else if((_number = std::strtod(cPnt, &cPnt)))
+                                {
+                                        Token::pntMake(&_inst, _number);
+                                        _parser->parse(_inst);
                                 }
                         }
                         else if(*cPnt == '#')

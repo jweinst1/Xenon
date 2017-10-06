@@ -11,6 +11,8 @@ private:
 TokzState _state;
 Parser* _parser;
 XenEventType _curEvent;
+double _number;
+Token _inst;
 
 
 public:

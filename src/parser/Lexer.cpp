@@ -53,7 +53,7 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
                         *nextChar = token + 2;
                         *eType = XenEventType_In;
                 default:
-                        throw XenError("Invalid Event: %c%c", token[0], token[1]);
+                        *eType = XenEventType_null;
                 }
         case 'o':
                 switch(token[1])
@@ -65,12 +65,12 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
                                 *nextChar = token + 3;
                                 *eType = XenEventType_Out;
                         default:
-                                throw "aoo";
+                                *eType = XenEventType_null;
                         }
                 default:
-                        throw "foo";
+                        *eType = XenEventType_null;
                 }
         default:
-                throw XenError("Invalid Event: %c", token[0]);
+                *eType = XenEventType_null;
         }
 }
