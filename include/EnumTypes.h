@@ -6,7 +6,12 @@ enum XenEventType
         XenEventType_null, //used as default or for errors
         XenEventType_In,
         XenEventType_Out,
-        XenEventType_Add
+        XenEventType_Add,
+        XenEventType_Sub,
+        XenEventType_Mul,
+        XenEventType_Div,
+        XenEventType_Inc,
+        XenEventType_Dec
 };
 
 enum XenType

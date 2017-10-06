@@ -50,6 +50,11 @@ static inline bool isZero(const char* ch)
 {
         return *ch == '0' && TokenSets::whiteSpace.contains(ch[1]);
 }
+
+static inline bool isNotWSpace(const char* ch)
+{
+        return !TokenSets::whiteSpace.contains(*ch);
+}
 };
 
 

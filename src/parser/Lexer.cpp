@@ -44,7 +44,35 @@ void Lexer::eventType(char* token, XenEventType* eType, char** nextChar)
         switch(token[0])
         {
         case '+':
+                switch(token[1])
+                {
+                case '+':
+                        *eType = XenEventType_Inc;
+                        *nextChar = token + 2;
+                        return;
+                default: break;
+                }
                 *eType = XenEventType_Add;
+                *nextChar = token + 1;
+                break;
+        case '-':
+                switch(token[1])
+                {
+                case '-':
+                        *eType = XenEventType_Dec;
+                        *nextChar = token + 2;
+                        break;
+                default: break;
+                }
+                *eType = XenEventType_Sub;
+                *nextChar = token + 1;
+                break;
+        case '*':
+                *eType = XenEventType_Mul;
+                *nextChar = token + 1;
+                break;
+        case '/':
+                *eType = XenEventType_Div;
                 *nextChar = token + 1;
                 break;
         case 'i':
