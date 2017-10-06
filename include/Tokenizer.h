@@ -10,6 +10,8 @@ class Tokenizer
 private:
 TokzState _state;
 Parser* _parser;
+XenEventType _curEvent;
+
 
 public:
 Tokenizer (Parser* prs);

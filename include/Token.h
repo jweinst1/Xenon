@@ -21,6 +21,18 @@ struct Token
         {
                 return {.type = TokenType_EventStart, .event = value};
         }
+
+        static inline void pntMake(Token* tk, double value)
+        {
+                tk->number = value;
+                tk->type = TokenType_Number;
+        }
+
+        static inline void pntMake(Token* tk, XenEventType value)
+        {
+                tk->event = value;
+                tk->type = TokenType_EventStart;
+        }
 };
 
 #endif
