@@ -6,8 +6,6 @@
 
 class ContextManager
 {
-private:
-ParseState _state;
 
 public:
 ContextManager();

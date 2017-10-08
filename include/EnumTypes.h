@@ -32,12 +32,6 @@ enum TokzState
         TokzState_Comment
 };
 
-//states for Xenon ContextManager
-enum ParseState
-{
-        ParseState_GetEvent,
-        ParseState_GetOp
-};
 
 //denotes type of token
 enum TokenType

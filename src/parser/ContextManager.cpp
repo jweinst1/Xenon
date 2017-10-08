@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ContextManager.h"
 
-ContextManager::ContextManager() : _state(ParseState_Base)
+ContextManager::ContextManager()
 {
 }
 
