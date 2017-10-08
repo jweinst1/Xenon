@@ -7,7 +7,7 @@
 
 
 int main(int argc, char const *argv[]) {
-        Parser machine;
+        ContextManager machine;
         Tokenizer toks(&machine);
         std::string code = "in #hello sir\n 5 | ++ 5| out 3";
         code += '|';

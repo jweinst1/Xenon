@@ -2,7 +2,7 @@
 #define XENON_TOKENIZER_HEADER
 
 #include "EnumTypes.h"
-#include "Parser.h"
+#include "ContextManager.h"
 
 
 class Tokenizer
@@ -10,14 +10,14 @@ class Tokenizer
 private:
 TokzState _state;
 TokzState _prevState;
-Parser* _parser;
+ContextManager* _ContextManager;
 XenEventType _curEvent;
 double _number;
 Token _inst;
 
 
 public:
-Tokenizer (Parser* prs);
+Tokenizer (ContextManager* prs);
 
 
 void tokenize(char* code);

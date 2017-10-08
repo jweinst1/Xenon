@@ -1,16 +1,16 @@
-#ifndef XENON_PARSER_HEADER
-#define XENON_PARSER_HEADER
+#ifndef XENON_CONTEXT_MANAGER_HEADER
+#define XENON_CONTEXT_MANAGER_HEADER
 
 #include "EnumTypes.h"
 #include "Token.h"
 
-class Parser
+class ContextManager
 {
 private:
 ParseState _state;
 
 public:
-Parser();
+ContextManager();
 void parse(const Token& tk);
 };
 

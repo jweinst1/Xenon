@@ -1,11 +1,11 @@
 #include <iostream>
-#include "Parser.h"
+#include "ContextManager.h"
 
-Parser::Parser() : _state(ParseState_Base)
+ContextManager::ContextManager() : _state(ParseState_Base)
 {
 }
 
-void Parser::parse(const Token& tk)
+void ContextManager::parse(const Token& tk)
 {
         switch(tk.type)
         {

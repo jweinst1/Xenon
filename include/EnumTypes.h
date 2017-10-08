@@ -32,7 +32,7 @@ enum TokzState
         TokzState_Comment
 };
 
-//states for Xenon parser
+//states for Xenon ContextManager
 enum ParseState
 {
         ParseState_GetEvent,

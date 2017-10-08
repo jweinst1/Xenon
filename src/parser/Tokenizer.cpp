@@ -5,9 +5,9 @@
 
 
 
-Tokenizer::Tokenizer(Parser* prs) : _state(TokzState_Base),
+Tokenizer::Tokenizer(ContextManager* prs) : _state(TokzState_Base),
         _prevState(TokzState_Base),
-        _parser(prs),
+        _ContextManager(prs),
         _curEvent(XenEventType_null)
 {
 
@@ -27,7 +27,7 @@ void Tokenizer::tokenize(char* code)
                                 if(_curEvent)
                                 {
                                         Token::pntMake(&_inst, _curEvent);
-                                        _parser->parse(_inst);
+                                        _ContextManager->parse(_inst);
                                         _state = TokzState_Event;
                                 }
                                 else throw XenError("Incorrect Event Name at: %d, eventisNull: %d", *cPnt, _curEvent == XenEventType_null);
@@ -45,7 +45,7 @@ void Tokenizer::tokenize(char* code)
                         if(*cPnt == '|')
                         {
                                 Token::endMake(&_inst);
-                                _parser->parse(_inst);
+                                _ContextManager->parse(_inst);
                                 _state = TokzState_Base;
                                 cPnt++;
                         }
@@ -54,12 +54,12 @@ void Tokenizer::tokenize(char* code)
                                 if(Lexer::isZero(cPnt))
                                 {
                                         Token::pntMake(&_inst, 0);
-                                        _parser->parse(_inst);
+                                        _ContextManager->parse(_inst);
                                 }
                                 else if((_number = std::strtod(cPnt, &cPnt)))
                                 {
                                         Token::pntMake(&_inst, _number);
-                                        _parser->parse(_inst);
+                                        _ContextManager->parse(_inst);
                                 }
                                 else throw XenError("Invalid Number Seq at: %d", *cPnt);
                         }
