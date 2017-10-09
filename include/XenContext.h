@@ -1,12 +1,13 @@
 #ifndef XENON_CONTEXT_HEADER
 #define XENON_CONTEXT_HEADER
 
-//this file contains a context class to facilitate reaction streams
-
+#include <map>
 #include "XenObject.h"
 
 class XenContext
 {
+private:
+XenObject _variable;
 public:
 
 XenContext()
@@ -20,8 +21,11 @@ void setVariable(const XenObject& xo)
 {
         _variable = xo;
 }
-private:
-XenObject _variable;
+
+XenObject& getVariable()
+{
+        return _variable;
+}
 };
 
 #endif

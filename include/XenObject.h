@@ -25,4 +25,14 @@ bool sameTypeAs(const XenObject& other)
 }
 };
 
+//represents the null type
+class XenNull : public XenObject
+{
+public:
+XenNull()
+{
+        setType(XenType_Null);
+}
+};
+
 #endif

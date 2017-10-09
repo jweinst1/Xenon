@@ -16,6 +16,7 @@ enum XenEventType
 
 enum XenType
 {
+        XenType_Null,
         XenType_Number
 };
 
@@ -40,5 +41,6 @@ enum TokenType
         TokenType_EventEnd,
         TokenType_Number
 };
+
 
 #endif

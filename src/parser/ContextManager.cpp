@@ -1,7 +1,8 @@
 #include <iostream>
 #include "ContextManager.h"
 
-ContextManager::ContextManager()
+ContextManager::ContextManager() : _lastEvent(XenEventType_null),
+        _curEvent(XenEventType_null)
 {
 }
 
@@ -10,7 +11,6 @@ void ContextManager::parse(const Token& tk)
         switch(tk.type)
         {
         case TokenType_EventStart:
-                std::cout << "Event Started, name is:" << tk.event << "\n";
                 break;
         case TokenType_EventEnd:
                 std::cout << "event ended\n";
